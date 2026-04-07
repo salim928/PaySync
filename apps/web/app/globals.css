@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   WAGENOW DESIGN SYSTEM — CSS Custom Properties
+   Deviation from these tokens is a bug, not a stylistic preference.
+═══════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    --bg:        #f5f2eb;
+    --bg2:       #ede8df;
+    --bg3:       #e3ddd2;
+    --bg4:       #d8d0c3;
+    --ink:       #18160f;
+    --ink2:      #2e2c21;
+    --ink3:      #6b6553;
+    --ink4:      #a39d8c;
+    --ink5:      #c4bfb0;
+    --white:     #ffffff;
+    --border:    #ddd7cb;
+    --border2:   #c9c2b4;
+    --green:     #0a5c34;
+    --green2:    #0f7a45;
+    --green3:    #12a05a;
+    --green-bg:  #e4f2ea;
+    --green-mid: #1a9459;
+    --gold:      #7a5a00;
+    --gold-bg:   #fdf4d8;
+
+    --nav-h:     68px;
+    --max:       1240px;
+    --r:         10px;
+    --r-lg:      16px;
+    --r-xl:      24px;
+    --r-2xl:     32px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+}
+
+/* ── Noise texture overlay ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+═══════════════════════════════════════════════════════════════ */
+
+.f-display {
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.display-xl { font-size: clamp(52px, 6vw, 84px); letter-spacing: -0.04em; line-height: 1.01; }
+.display-lg { font-size: clamp(36px, 4vw, 58px); letter-spacing: -0.04em; line-height: 1.05; }
+.display-md { font-size: clamp(28px, 3.5vw, 46px); letter-spacing: -0.04em; line-height: 1.08; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATION KEYFRAMES
+═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pls {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+@keyframes tick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Scroll reveal base */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero stagger animations */
+.hero-stagger-1 { animation: fadeUp 0.6s 0.1s both ease; }
+.hero-stagger-2 { animation: fadeUp 0.7s 0.2s both ease; }
+.hero-stagger-3 { animation: fadeUp 0.7s 0.32s both ease; }
+.hero-stagger-4 { animation: fadeUp 0.7s 0.44s both ease; }
+.hero-stagger-5 { animation: fadeUp 0.7s 0.56s both ease; }
+.hero-stagger-6 { animation: fadeUp 0.8s 0.5s both ease; }
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENT UTILITIES
+═══════════════════════════════════════════════════════════════ */
+
+.section-padding {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: 52px;
+  padding-right: 52px;
+}
+
+@media (max-width: 1080px) {
+  .section-padding { padding-left: 32px; padding-right: 32px; }
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink4);
+}
+
+/* Dark sections */
+.dark-section {
+  background: var(--ink);
+  color: #fff;
+}

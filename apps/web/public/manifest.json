@@ -1,0 +1,21 @@
+{
+  "name": "WageNow",
+  "short_name": "WageNow",
+  "description": "Access your earned wages before payday",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#f5f2eb",
+  "theme_color": "#18160f",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
