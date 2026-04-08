@@ -20,12 +20,13 @@ __pycache__/
 venv/
 env/
 
-# Environment files (contain secrets)
+# Environment files (contain secrets) — catch ALL .env variants everywhere
 .env
-.env.local
-.env.*.local
-apps/api/.env
-apps/web/.env.local
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
 
 # IDE
 .vscode/
