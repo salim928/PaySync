@@ -48,7 +48,7 @@ class Settings(BaseSettings):
         description="Supabase JWT secret (Settings → API → JWT Secret). Falls back to empty = skip Supabase JWT verification."
     )
     next_public_supabase_url: str = Field(default="")
-    next_public_supabase_anon_key: str = Field(default="")
+    next_public_supabase_publishable_key: str = Field(default="")
 
     # ── App ──
     environment: str = Field(default="development")

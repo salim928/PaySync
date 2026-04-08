@@ -46,7 +46,7 @@ Go to **Supabase Dashboard** > **SQL Editor** and run these files **in order**:
 
 From **Settings** > **API**:
 - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
-- `anon public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `publishable` key → `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
 - `service_role` key → `SUPABASE_SERVICE_KEY`
 - `JWT Secret` → `SUPABASE_JWT_SECRET`
 
@@ -79,7 +79,7 @@ ENCRYPTION_KEY=<python -c "from cryptography.fernet import Fernet; print(Fernet.
 SUPABASE_SERVICE_KEY=<from Supabase>
 SUPABASE_JWT_SECRET=<from Supabase → Settings → API → JWT Secret>
 NEXT_PUBLIC_SUPABASE_URL=https://[ref].supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<from Supabase>
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<from Supabase>
 ENVIRONMENT=production
 DEBUG=false
 CORS_ORIGINS=["https://your-app.vercel.app"]
@@ -113,7 +113,7 @@ PORT=8000
 ```
 NEXT_PUBLIC_API_URL=https://your-backend-url.up.railway.app
 NEXT_PUBLIC_SUPABASE_URL=https://[ref].supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<from Supabase>
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<from Supabase>
 SUPABASE_SERVICE_KEY=<from Supabase>
 ```
 
