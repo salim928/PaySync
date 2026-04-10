@@ -16,6 +16,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.core.database import get_db
 from src.core.redis import get_redis
+from jose import jwt as jose_jwt, JWTError as JoseJWTError
+
 from src.core.security import (
     TokenError,
     UserRole,
@@ -87,6 +89,88 @@ def _set_refresh_cookie(response: Response, refresh_token: str) -> None:
         samesite="lax",
         max_age=7 * 24 * 3600,  # 7 days
         path="/api/v1/auth",
+    )
+
+
+# ── Token exchange (Supabase → FastAPI JWT) ──
+
+@router.post("/token/exchange", response_model=TokenResponse)
+async def exchange_supabase_token(
+    request: Request,
+    response: Response,
+    db: AsyncSession = Depends(get_db),
+) -> TokenResponse:
+    """Exchange a Supabase JWT for a FastAPI JWT.
+
+    Decodes the Supabase token to extract the user's email,
+    looks up the Employer by email, and returns a FastAPI JWT
+    with the correct employer_id.
+    """
+    auth_header = request.headers.get("Authorization", "")
+    if not auth_header.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Missing Authorization header")
+
+    token = auth_header[7:]
+
+    # Decode Supabase JWT (without signature verification — Supabase already verified it)
+    try:
+        payload = jose_jwt.decode(
+            token, "", algorithms=["HS256"],
+            options={"verify_signature": False, "verify_aud": False},
+        )
+    except JoseJWTError:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
+    email = payload.get("email")
+    if not email:
+        raise HTTPException(status_code=401, detail="Token missing email claim")
+
+    result = await db.execute(select(Employer).where(Employer.email == email))
+    employer = result.scalar_one_or_none()
+
+    if employer is None:
+        # Auto-provision employer from Supabase user_metadata (set during signup)
+        meta = payload.get("user_metadata", {})
+        company_name = meta.get("company_name", "")
+        ghana_tin = meta.get("ghana_tin", "")
+        payday = meta.get("payday", 25)
+
+        if not company_name or not ghana_tin:
+            raise HTTPException(
+                status_code=404,
+                detail="No employer account found. Please register with company details first.",
+            )
+
+        # Check TIN uniqueness
+        tin_check = await db.execute(select(Employer).where(Employer.ghana_tin == ghana_tin))
+        if tin_check.scalar_one_or_none():
+            raise HTTPException(status_code=409, detail="Ghana TIN already registered")
+
+        employer = Employer(
+            company_name=company_name,
+            ghana_tin=ghana_tin,
+            email=email,
+            password_hash="supabase_auth",  # No local password — auth is via Supabase
+            payday=int(payday),
+        )
+        db.add(employer)
+        await db.flush()
+        logger.info("employer_auto_provisioned", employer_id=str(employer.id), email=email)
+
+    access = create_access_token(
+        sub=str(employer.id),
+        employer_id=employer.id,
+        role=UserRole.EMPLOYER_ADMIN,
+    )
+    refresh = create_refresh_token(sub=str(employer.id))
+    _set_refresh_cookie(response, refresh)
+
+    logger.info("token_exchange", employer_id=str(employer.id), email=email)
+
+    return TokenResponse(
+        access_token=access,
+        expires_in=900,
+        role=UserRole.EMPLOYER_ADMIN.value,
     )
 
 

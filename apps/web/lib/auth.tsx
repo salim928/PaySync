@@ -11,6 +11,8 @@ import {
 import { createSupabaseBrowserClient } from "@/lib/supabase-browser";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 
+/* ── Types ── */
+
 interface AuthUser {
   sub: string;
   employer_id: string;
@@ -25,7 +27,11 @@ interface AuthContextType {
   loading: boolean;
   loginWithSupabase: (email: string, password: string) => Promise<void>;
   loginWithCustomJWT: (token: string) => void;
-  signUpEmployer: (email: string, password: string, metadata?: Record<string, unknown>) => Promise<string>;
+  signUpEmployer: (
+    email: string,
+    password: string,
+    metadata?: Record<string, unknown>,
+  ) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -35,9 +41,11 @@ const AuthContext = createContext<AuthContextType>({
   loading: true,
   loginWithSupabase: async () => {},
   loginWithCustomJWT: () => {},
-  signUpEmployer: async () => "",
+  signUpEmployer: async () => {},
   logout: async () => {},
 });
+
+/* ── Helpers ── */
 
 function parseJwt(token: string): Record<string, unknown> | null {
   try {
@@ -60,63 +68,116 @@ function getCookie(name: string): string | null {
   return m ? m[1] : null;
 }
 
+/**
+ * Exchange a Supabase access token for a FastAPI JWT.
+ *
+ * The backend `/auth/token/exchange` endpoint:
+ *  - decodes the Supabase token to get the user's email
+ *  - looks up (or auto-creates) the Employer record
+ *  - returns a FastAPI JWT with the correct employer_id
+ */
+async function exchangeForFastAPIToken(
+  supabaseToken: string,
+): Promise<string | null> {
+  try {
+    const res = await fetch("/api/v1/auth/token/exchange", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${supabaseToken}`,
+      },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.access_token;
+    }
+  } catch {
+    // Backend not reachable — caller handles fallback
+  }
+  return null;
+}
+
+/** Persist a FastAPI JWT and return the parsed AuthUser. */
+function persistToken(token: string, source: AuthUser["source"]): AuthUser | null {
+  const payload = parseJwt(token);
+  if (!payload) return null;
+
+  setCookie("wagenow_token", token, 1);
+  localStorage.setItem("wagenow_token", token);
+
+  return {
+    sub: payload.sub as string,
+    employer_id: payload.employer_id as string,
+    role: payload.role as AuthUser["role"],
+    token,
+    source,
+  };
+}
+
+/* ── Provider ── */
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [supabaseUser, setSupabaseUser] = useState<SupabaseUser | null>(null);
   const [loading, setLoading] = useState(true);
 
+  /* Restore session on mount */
   useEffect(() => {
     const supabase = createSupabaseBrowserClient();
     let mounted = true;
 
     const restoreSession = async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession() as { data: { session: { user: SupabaseUser; access_token: string } | null } };
+        // 1. Check for existing Supabase session
+        const {
+          data: { session },
+        } = (await supabase.auth.getSession()) as {
+          data: {
+            session: {
+              user: SupabaseUser;
+              access_token: string;
+            } | null;
+          };
+        };
 
         if (!mounted) return;
 
         if (session?.user) {
           setSupabaseUser(session.user);
 
-          // Try to get FastAPI JWT, fall back to Supabase token
-          const apiToken = await fetchFastAPIToken(session.access_token);
-
+          // 2. Exchange Supabase token for FastAPI JWT
+          const apiToken = await exchangeForFastAPIToken(session.access_token);
           if (!mounted) return;
 
           if (apiToken) {
-            const payload = parseJwt(apiToken);
-            if (payload) {
-              setCookie("wagenow_token", apiToken, 1);
-              localStorage.setItem("wagenow_token", apiToken);
-              setUser({
-                sub: payload.sub as string,
-                employer_id: payload.employer_id as string,
-                role: payload.role as AuthUser["role"],
-                token: apiToken,
-                source: "supabase",
-              });
+            const authUser = persistToken(apiToken, "supabase");
+            if (authUser) {
+              setUser(authUser);
               setLoading(false);
               return;
             }
           }
 
-          // Fallback: use Supabase session directly
-          const token = session.access_token;
-          setCookie("wagenow_token", token, 1);
-          localStorage.setItem("wagenow_token", token);
+          // 3. Fallback: use Supabase token directly (backend down)
+          setCookie("wagenow_token", session.access_token, 1);
+          localStorage.setItem("wagenow_token", session.access_token);
           setUser({
             sub: session.user.id,
             employer_id: session.user.id,
             role: "employer_admin",
-            token,
+            token: session.access_token,
             source: "supabase",
           });
         } else {
-          // Check for custom JWT (employee OTP login)
+          // 4. Check for custom JWT (employee OTP login)
           const customToken = getCookie("wagenow_token");
           if (customToken) {
             const payload = parseJwt(customToken);
-            if (payload && typeof payload.exp === "number" && payload.exp * 1000 > Date.now()) {
+            if (
+              payload &&
+              typeof payload.exp === "number" &&
+              payload.exp * 1000 > Date.now()
+            ) {
               setUser({
                 sub: payload.sub as string,
                 employer_id: payload.employer_id as string,
@@ -126,6 +187,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
               });
             } else {
               deleteCookie("wagenow_token");
+              localStorage.removeItem("wagenow_token");
             }
           }
         }
@@ -138,14 +200,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     restoreSession();
 
-    // Listen for auth state changes (ignore during initial load)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event: string, session: { user: SupabaseUser } | null) => {
-      setSupabaseUser(session?.user ?? null);
-      // Only clear user on explicit sign-out, not during initial load
-      if (!session && !loading) {
-        setUser(null);
-      }
-    });
+    // Listen for Supabase auth changes (sign-out, token refresh, etc.)
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(
+      (_event: string, session: { user: SupabaseUser } | null) => {
+        setSupabaseUser(session?.user ?? null);
+        if (!session && !loading) {
+          setUser(null);
+          deleteCookie("wagenow_token");
+          localStorage.removeItem("wagenow_token");
+        }
+      },
+    );
 
     return () => {
       mounted = false;
@@ -153,115 +220,95 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // Exchange Supabase token for FastAPI JWT
-  const fetchFastAPIToken = async (supabaseToken: string): Promise<string | null> => {
-    try {
-      const res = await fetch("/api/v1/auth/employer/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Supabase-Token": supabaseToken,
-        },
-        body: JSON.stringify({ supabase_token: supabaseToken }),
+  /* ── Employer login (Supabase) ── */
+  const loginWithSupabase = useCallback(
+    async (email: string, password: string) => {
+      const supabase = createSupabaseBrowserClient();
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
-      if (res.ok) {
-        const data = await res.json();
-        return data.access_token;
-      }
-    } catch {
-      // Token exchange failed — user will need to log in manually
-    }
-    return null;
-  };
+      if (error) throw new Error(error.message);
 
-  const loginWithSupabase = useCallback(async (email: string, password: string) => {
-    const supabase = createSupabaseBrowserClient();
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) throw new Error(error.message);
+      setSupabaseUser(data.user);
 
-    setSupabaseUser(data.user);
+      const supabaseToken = data.session?.access_token ?? "";
 
-    // Try to get FastAPI JWT for API calls (optional — backend may not be running)
-    try {
-      const res = await fetch("/api/v1/auth/employer/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      if (res.ok) {
-        const apiData = await res.json();
-        const payload = parseJwt(apiData.access_token);
-        if (payload) {
-          setCookie("wagenow_token", apiData.access_token, 1);
-          localStorage.setItem("wagenow_token", apiData.access_token);
-          setUser({
-            sub: payload.sub as string,
-            employer_id: payload.employer_id as string,
-            role: payload.role as AuthUser["role"],
-            token: apiData.access_token,
-            source: "supabase",
-          });
+      // Exchange for FastAPI JWT (has correct employer_id)
+      const apiToken = await exchangeForFastAPIToken(supabaseToken);
+      if (apiToken) {
+        const authUser = persistToken(apiToken, "supabase");
+        if (authUser) {
+          setUser(authUser);
           return;
         }
       }
-    } catch {
-      // FastAPI backend not available — fall through to Supabase-only auth
-    }
 
-    // Fallback: use Supabase session directly (no FastAPI token)
-    const supabaseToken = data.session?.access_token ?? "";
-    setCookie("wagenow_token", supabaseToken, 1);
-    localStorage.setItem("wagenow_token", supabaseToken);
-    setUser({
-      sub: data.user.id,
-      employer_id: data.user.id,
-      role: "employer_admin",
-      token: supabaseToken,
-      source: "supabase",
-    });
-  }, []);
+      // Fallback: use Supabase token directly
+      setCookie("wagenow_token", supabaseToken, 1);
+      localStorage.setItem("wagenow_token", supabaseToken);
+      setUser({
+        sub: data.user.id,
+        employer_id: data.user.id,
+        role: "employer_admin",
+        token: supabaseToken,
+        source: "supabase",
+      });
+    },
+    [],
+  );
 
-  const signUpEmployer = useCallback(async (
-    email: string,
-    password: string,
-    metadata?: Record<string, unknown>
-  ): Promise<string> => {
-    const supabase = createSupabaseBrowserClient();
+  /* ── Employer signup (Supabase + auto-provision via token exchange) ── */
+  const signUpEmployer = useCallback(
+    async (
+      email: string,
+      password: string,
+      metadata?: Record<string, unknown>,
+    ): Promise<void> => {
+      const supabase = createSupabaseBrowserClient();
 
-    // 1. Create Supabase Auth user
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: { data: metadata },
-    });
-    if (error) throw new Error(error.message);
+      // 1. Create Supabase Auth user with company metadata
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: metadata },
+      });
+      if (error) throw new Error(error.message);
 
-    setSupabaseUser(data.user);
+      setSupabaseUser(data.user);
 
-    // 2. Return the Supabase user ID for linking to employer record
-    return data.user?.id || "";
-  }, []);
+      // 2. If Supabase returned a session (email confirm disabled),
+      //    exchange it for FastAPI JWT (auto-creates employer profile)
+      const supabaseToken = data.session?.access_token;
+      if (supabaseToken) {
+        const apiToken = await exchangeForFastAPIToken(supabaseToken);
+        if (apiToken) {
+          const authUser = persistToken(apiToken, "supabase");
+          if (authUser) {
+            setUser(authUser);
+            return;
+          }
+        }
+      }
 
+      // If no session yet (email confirmation required), user must confirm first
+    },
+    [],
+  );
+
+  /* ── Employee login (FastAPI custom JWT from OTP verify) ── */
   const loginWithCustomJWT = useCallback((token: string) => {
-    const payload = parseJwt(token);
-    if (!payload) return;
+    const authUser = persistToken(token, "custom_jwt");
+    if (!authUser) return;
 
-    setCookie("wagenow_token", token, 1);
-    localStorage.setItem("wagenow_token", token);
-
-    if (payload.role === "employee") {
-      localStorage.setItem("wagenow_employee_id", payload.sub as string);
+    if (authUser.role === "employee") {
+      localStorage.setItem("wagenow_employee_id", authUser.sub);
     }
 
-    setUser({
-      sub: payload.sub as string,
-      employer_id: payload.employer_id as string,
-      role: payload.role as AuthUser["role"],
-      token,
-      source: "custom_jwt",
-    });
+    setUser(authUser);
   }, []);
 
+  /* ── Logout ── */
   const logout = useCallback(async () => {
     const supabase = createSupabaseBrowserClient();
     await supabase.auth.signOut();
@@ -275,15 +322,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      supabaseUser,
-      loading,
-      loginWithSupabase,
-      loginWithCustomJWT,
-      signUpEmployer,
-      logout,
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        supabaseUser,
+        loading,
+        loginWithSupabase,
+        loginWithCustomJWT,
+        signUpEmployer,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

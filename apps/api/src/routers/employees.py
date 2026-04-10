@@ -87,7 +87,7 @@ async def create_employee(
     """Create a single employee."""
     employer_id = _get_employer_id(request)
 
-    # Check phone uniqueness
+    # Check phone uniqueness (globally — one phone = one employee)
     existing = await db.execute(
         select(Employee).where(Employee.phone == body.phone)
     )

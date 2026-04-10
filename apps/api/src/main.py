@@ -90,6 +90,7 @@ def create_app() -> FastAPI:
         public_paths = {
             "/docs", "/redoc", "/openapi.json",
             "/api/v1/health",
+            "/api/v1/auth/token/exchange",
             "/api/v1/auth/employer/register",
             "/api/v1/auth/employer/login",
             "/api/v1/auth/employee/otp/request",

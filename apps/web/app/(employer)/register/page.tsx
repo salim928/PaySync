@@ -8,7 +8,7 @@ import { useAuth } from "@/lib/auth";
 
 export default function EmployerRegisterPage() {
   const router = useRouter();
-  const { signUpEmployer, loginWithCustomJWT } = useAuth();
+  const { signUpEmployer } = useAuth();
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({ company_name: "", ghana_tin: "", email: "", password: "", payday: 25 });
   const [loading, setLoading] = useState(false);
@@ -22,29 +22,18 @@ export default function EmployerRegisterPage() {
     setLoading(true);
     setError("");
     try {
-      // 1. Create Supabase Auth user
-      const supabaseUserId = await signUpEmployer(form.email, form.password, {
+      // 1. Supabase signup with company metadata
+      //    → signUpEmployer also exchanges the token for a FastAPI JWT
+      //      which auto-provisions the Employer record in the backend
+      await signUpEmployer(form.email, form.password, {
         company_name: form.company_name,
+        ghana_tin: form.ghana_tin,
+        payday: form.payday,
         role: "employer_admin",
       });
 
-      // 2. Try to register in FastAPI backend (optional — backend may not be running)
-      try {
-        const res = await fetch("/api/v1/auth/employer/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        });
-        if (res.ok) {
-          const data = await res.json();
-          loginWithCustomJWT(data.access_token);
-        }
-      } catch {
-        // FastAPI backend not available — proceed with Supabase-only auth
-      }
-
-      // 3. Redirect — Supabase session will be picked up by the auth provider
-      router.push(supabaseUserId ? "/dashboard" : "/login");
+      // 2. Redirect to dashboard
+      router.push("/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Registration failed");
     } finally {
