@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -25,10 +25,23 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WageNow Ghana — Earned Wage Access for Ghana's Workforce",
+  title: {
+    default: "WageNow Ghana — Earned Wage Access for Ghana's Workforce",
+    template: "%s | WageNow Ghana",
+  },
   description:
     "Give Ghana's employees real-time access to wages they've already accrued. No loans. No interest. Disbursed to MoMo in ~90 seconds.",
   metadataBase: new URL("https://wagenow.com.gh"),
+  manifest: "/manifest.json",
+  openGraph: {
+    siteName: "WageNow Ghana",
+    type: "website",
+    locale: "en_GH",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#18160f",
 };
 
 import { AuthProvider } from "@/lib/auth";
