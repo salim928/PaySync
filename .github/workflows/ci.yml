@@ -75,7 +75,7 @@ jobs:
     env:
       NEXT_PUBLIC_API_URL: https://api.example.com
       NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: placeholder-for-build
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-for-build
       SUPABASE_SERVICE_KEY: placeholder-for-build
     steps:
       - uses: actions/checkout@v4

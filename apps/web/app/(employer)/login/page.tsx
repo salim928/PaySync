@@ -57,7 +57,10 @@ export default function EmployerLoginPage() {
                 placeholder="admin@company.com" />
             </div>
             <div>
-              <label className="block text-[12px] font-semibold tracking-[0.06em] uppercase mb-2" style={{ color: "var(--ink4)" }}>Password</label>
+              <div className="flex items-center justify-between mb-2">
+                <label className="block text-[12px] font-semibold tracking-[0.06em] uppercase" style={{ color: "var(--ink4)" }}>Password</label>
+                <Link href="/forgot-password" className="text-[12px] font-medium" style={{ color: "var(--green)" }}>Forgot password?</Link>
+              </div>
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required
                 className="w-full px-4 py-3 rounded-(--r) text-[14px] outline-none transition-colors focus:border-(--green3) font-(family-name:--font-dm-sans)"
                 style={{ background: "var(--bg)", border: "1px solid var(--border)", color: "var(--ink)" }}
