@@ -30,7 +30,7 @@ const principles = [
   {
     icon: "🏦",
     title: "PCI-aware transaction handling",
-    body: "WageNow never stores credit card data. MoMo disbursements flow through licensed payment service providers with PCI DSS compliance. We handle tokens, not credentials.",
+    body: "WageNow never stores credit card data. Disbursements flow through licensed payment service providers with PCI DSS compliance. We handle tokens, not credentials.",
   },
   {
     icon: "📊",
@@ -78,8 +78,8 @@ export default function SecurityPage() {
           </h3>
           <p className="text-[14px] leading-[1.75] max-w-[600px]" style={{ color: "rgba(255,255,255,0.5)" }}>
             If you discover a security vulnerability, please report it to{" "}
-            <a href="mailto:security@wagenow.com.gh" className="underline" style={{ color: "rgba(255,255,255,0.7)" }}>
-              security@wagenow.com.gh
+            <a href="mailto:security@wagenow.io" className="underline" style={{ color: "rgba(255,255,255,0.7)" }}>
+              security@wagenow.io
             </a>
             . We take all reports seriously and will respond within 24 hours.
           </p>

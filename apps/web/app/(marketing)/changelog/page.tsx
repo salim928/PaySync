@@ -58,9 +58,9 @@ const entries = [
     tags: ["Launch"],
     items: [
       "Employer onboarding — register, upload payroll CSV, configure accrual rules",
-      "Employee earned wage access with MoMo disbursement",
+      "Employee earned wage access with mobile wallet disbursement",
       "Employer dashboard with employee management and deduction reports",
-      "GHS 3 flat fee per withdrawal — no interest, no percentage",
+      "Flat fee per withdrawal — no interest, no percentage",
     ],
   },
 ];
@@ -78,7 +78,7 @@ export default function ChangelogPage() {
       <PageHeader
         eyebrow="Changelog"
         title={<>What&apos;s <em className="italic" style={{ color: "var(--green2)" }}>new</em></>}
-        subtitle="Product updates, new features, and improvements to WageNow. Follow along as we build the future of earned wage access in Ghana."
+        subtitle="Product updates, new features, and improvements to WageNow. Follow along as we build the future of earned wage access."
       />
 
       <section className="section-padding pb-[120px] max-[1080px]:pb-20">

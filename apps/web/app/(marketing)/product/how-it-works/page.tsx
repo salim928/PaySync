@@ -23,14 +23,14 @@ const steps = [
   {
     number: "03",
     title: "Employees access their wages",
-    description: "Employees log in via the WageNow web app or WhatsApp to view their available balance and request a withdrawal to their MoMo wallet.",
+    description: "Employees log in via the WageNow web app or WhatsApp to view their available balance and request a withdrawal to their mobile wallet.",
     detail: "No app download needed. Phone number verification via OTP. Balance updates in real-time.",
   },
   {
     number: "04",
-    title: "Instant MoMo disbursement",
-    description: "Approved withdrawals are disbursed to the employee's Mobile Money wallet in approximately 90 seconds. All networks supported.",
-    detail: "MTN MoMo, Vodafone Cash, and AirtelTigo Money. Flat GHS 3 fee per transaction, paid by the employee.",
+    title: "Instant mobile disbursement",
+    description: "Approved withdrawals are disbursed to the employee's mobile wallet in approximately 90 seconds. All networks supported.",
+    detail: "All major mobile money networks and bank accounts supported. Flat fee per transaction, paid by the employee.",
   },
   {
     number: "05",

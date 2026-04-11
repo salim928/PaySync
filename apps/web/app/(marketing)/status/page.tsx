@@ -10,9 +10,8 @@ const services = [
   { name: "WageNow API", status: "operational" as const },
   { name: "Employer Dashboard", status: "operational" as const },
   { name: "Employee PWA", status: "operational" as const },
-  { name: "MoMo Disbursements (MTN)", status: "operational" as const },
-  { name: "MoMo Disbursements (Vodafone)", status: "operational" as const },
-  { name: "MoMo Disbursements (AirtelTigo)", status: "operational" as const },
+  { name: "Mobile Wallet Disbursements", status: "operational" as const },
+  { name: "Bank Transfer Disbursements", status: "operational" as const },
   { name: "WhatsApp Notifications", status: "operational" as const },
   { name: "Payroll CSV Processing", status: "operational" as const },
 ];
@@ -32,8 +31,8 @@ const recentIncidents = [
   },
   {
     date: "2026-03-18",
-    title: "MTN MoMo delayed disbursements",
-    description: "MTN experienced intermittent delays in processing disbursement requests. Average delay was 4 minutes. Resolved by MTN network team.",
+    title: "Mobile wallet delayed disbursements",
+    description: "A mobile network experienced intermittent delays in processing disbursement requests. Average delay was 4 minutes. Resolved by the network team.",
     status: "resolved",
   },
 ];

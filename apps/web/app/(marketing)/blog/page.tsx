@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/marketing/page-header";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Insights on earned wage access, financial inclusion, and building payroll infrastructure in Ghana.",
+  description: "Insights on earned wage access, financial inclusion, and building payroll infrastructure.",
 };
 
 const posts = [
@@ -18,29 +18,29 @@ const posts = [
   {
     date: "2026-03-25",
     category: "Engineering",
-    title: "How we achieve ~90 second MoMo disbursements",
-    excerpt: "A technical deep-dive into our disbursement pipeline — from withdrawal request to MoMo confirmation. Queue architecture, retry strategies, and network-specific optimisations.",
+    title: "How we achieve ~90 second disbursements",
+    excerpt: "A technical deep-dive into our disbursement pipeline — from withdrawal request to wallet confirmation. Queue architecture, retry strategies, and network-specific optimisations.",
     readTime: "7 min read",
   },
   {
     date: "2026-03-12",
     category: "Industry",
-    title: "The true cost of payday loans in Ghana",
-    excerpt: "Loan apps advertise convenience, but the APR tells a different story. We analysed 12 popular lending apps in Ghana and compared their costs to earned wage access.",
+    title: "The true cost of payday loans",
+    excerpt: "Loan apps advertise convenience, but the APR tells a different story. We analysed 12 popular lending apps and compared their costs to earned wage access.",
     readTime: "5 min read",
   },
   {
     date: "2026-02-28",
     category: "Company",
-    title: "Why we charge GHS 3 flat — and always will",
+    title: "Why we charge a flat fee — and always will",
     excerpt: "Percentage-based fees create perverse incentives. The more an employee withdraws, the more you earn. That's not aligned with the worker's interest. Here's why flat fees matter.",
     readTime: "3 min read",
   },
   {
     date: "2026-02-15",
     category: "Company",
-    title: "Introducing WageNow — earned wage access for Ghana",
-    excerpt: "Today we're launching WageNow, a platform that gives Ghana's formal workforce real-time access to wages they've already earned. No loans, no interest, disbursed to MoMo in ~90 seconds.",
+    title: "Introducing WageNow — earned wage access for everyone",
+    excerpt: "Today we're launching WageNow, a platform that gives the formal workforce real-time access to wages they've already earned. No loans, no interest, disbursed to mobile wallets in ~90 seconds.",
     readTime: "6 min read",
   },
 ];
@@ -57,7 +57,7 @@ export default function BlogPage() {
     <>
       <PageHeader
         eyebrow="Blog"
-        title={<>Thoughts on <em className="italic" style={{ color: "var(--green2)" }}>building</em> for Ghana&apos;s workforce</>}
+        title={<>Thoughts on <em className="italic" style={{ color: "var(--green2)" }}>building</em> for the workforce</>}
         subtitle="Insights on earned wage access, financial inclusion, payroll infrastructure, and the engineering behind WageNow."
       />
 

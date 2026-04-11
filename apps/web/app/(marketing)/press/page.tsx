@@ -5,37 +5,38 @@ import { PageHeader } from "@/components/marketing/page-header";
 export const metadata: Metadata = {
   title: "Press",
   description: "WageNow press resources — company information, brand assets, and media contact.",
+
 };
 
 const coverage = [
   {
     date: "2026-04-01",
-    outlet: "Ghana Business News",
+    outlet: "Business News Daily",
     title: "WageNow launches earned wage access platform targeting 1.5M formal workers",
-    excerpt: "Accra-based fintech WageNow has launched a platform enabling employees to access earned wages before payday, disbursed via Mobile Money for a flat GHS 3 fee.",
+    excerpt: "Fintech WageNow has launched a platform enabling employees to access earned wages before payday, disbursed via mobile wallets for a flat fee.",
   },
   {
     date: "2026-03-15",
-    outlet: "TechCrunch Africa",
-    title: "The case for earned wage access in West Africa",
-    excerpt: "As predatory lending apps proliferate across Ghana, a new wave of fintech startups is offering an alternative: letting workers access money they've already earned.",
+    outlet: "TechCrunch",
+    title: "The case for earned wage access in emerging markets",
+    excerpt: "As predatory lending apps proliferate, a new wave of fintech startups is offering an alternative: letting workers access money they've already earned.",
   },
   {
     date: "2026-02-20",
-    outlet: "Disrupt Africa",
-    title: "Ghana's WageNow tackles payday loan dependency with EWA platform",
-    excerpt: "WageNow, a Ghanaian startup, is positioning earned wage access as an alternative to the growing payday loan market, offering instant MoMo disbursements at a flat fee.",
+    outlet: "Disrupt",
+    title: "WageNow tackles payday loan dependency with EWA platform",
+    excerpt: "WageNow is positioning earned wage access as an alternative to the growing payday loan market, offering instant mobile wallet disbursements at a flat fee.",
   },
 ];
 
 const facts = [
   { label: "Founded", value: "2026" },
-  { label: "Headquarters", value: "Airport City, Accra, Ghana" },
+  { label: "Headquarters", value: "Global" },
   { label: "Product", value: "Earned Wage Access (EWA)" },
-  { label: "Addressable market", value: "1.5M formal workers in Ghana" },
-  { label: "Disbursement speed", value: "~90 seconds to MoMo" },
-  { label: "Employee cost", value: "GHS 3 flat per withdrawal" },
-  { label: "Supported networks", value: "MTN MoMo, Vodafone Cash, AirtelTigo Money" },
+  { label: "Addressable market", value: "1.5M+ formal workers" },
+  { label: "Disbursement speed", value: "~90 seconds to mobile wallet" },
+  { label: "Employee cost", value: "Flat fee per withdrawal" },
+  { label: "Supported channels", value: "Mobile money, bank transfer" },
   { label: "Employer onboarding", value: "~5 days from CSV upload to first withdrawal" },
 ];
 
@@ -45,7 +46,7 @@ export default function PressPage() {
       <PageHeader
         eyebrow="Press"
         title={<>Press & <em className="italic" style={{ color: "var(--green2)" }}>media</em></>}
-        subtitle="For media enquiries, interviews, or press assets, contact press@wagenow.com.gh. We typically respond within 24 hours."
+        subtitle="For media enquiries, interviews, or press assets, contact press@wagenow.io. We typically respond within 24 hours."
       />
 
       {/* Brand assets */}
@@ -64,7 +65,7 @@ export default function PressPage() {
             <div className="flex items-center gap-3">
               <LogoMark size={48} />
               <span className="text-[24px] font-semibold tracking-[-0.02em]" style={{ color: "var(--ink)" }}>
-                WageNow Ghana
+                WageNow
               </span>
             </div>
           </div>
@@ -75,7 +76,7 @@ export default function PressPage() {
             <div className="flex items-center gap-3">
               <LogoMark size={48} />
               <span className="text-[24px] font-semibold tracking-[-0.02em] text-white">
-                WageNow Ghana
+                WageNow
               </span>
             </div>
           </div>

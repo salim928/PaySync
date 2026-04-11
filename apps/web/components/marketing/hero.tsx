@@ -18,7 +18,7 @@ export function Hero() {
           WebkitTextStroke: "1px var(--border2)",
         }}
       >
-        GHS
+        EWA
       </div>
 
       <div className="relative z-[1] grid grid-cols-[1fr_520px] gap-16 items-end max-[1080px]:grid-cols-1">
@@ -34,7 +34,7 @@ export function Hero() {
               style={{ background: "var(--green3)", animation: "pls 2.4s ease-in-out infinite" }}
             />
             <span className="text-[12px] font-medium tracking-[0.01em]" style={{ color: "var(--green)" }}>
-              Now live across Ghana — zero credit risk EWA
+              Now live — zero credit risk EWA
             </span>
           </div>
 
@@ -53,7 +53,7 @@ export function Hero() {
             style={{ color: "var(--ink3)" }}
           >
             <strong className="font-medium" style={{ color: "var(--ink2)" }}>WageNow</strong> gives
-            Ghana&apos;s formal employees real-time access to wages they&apos;ve already accrued — before
+            employees real-time access to wages they&apos;ve already accrued — before
             payday. No loans. No interest. No credit risk. Just their own money, when they need it.
           </p>
 
@@ -66,7 +66,8 @@ export function Hero() {
             >
               Request early access →
             </a>
-            <button
+            <a
+              href="/demo"
               className="inline-flex items-center gap-[9px] text-[15px] font-normal px-7 py-[14px] rounded-[10px] cursor-pointer transition-colors duration-150 font-[family-name:var(--font-dm-sans)]"
               style={{
                 background: "transparent",
@@ -80,7 +81,7 @@ export function Hero() {
                 <path d="M6 5.5L10.5 8L6 10.5V5.5Z" fill="currentColor" />
               </svg>
               Watch demo
-            </button>
+            </a>
           </div>
 
           {/* Proof */}
@@ -107,7 +108,7 @@ export function Hero() {
             <p className="text-[13px] leading-[1.45]" style={{ color: "var(--ink4)" }}>
               <strong className="font-medium" style={{ color: "var(--ink3)" }}>Early access open</strong>
               <br />
-              Trusted by HR &amp; Finance leads across Accra, Tema &amp; Kumasi
+              Trusted by HR &amp; Finance leads across multiple industries
             </p>
           </div>
         </div>
@@ -134,7 +135,7 @@ export function Hero() {
               ~90s
             </div>
             <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
-              via MoMo rails
+              via mobile wallet
             </div>
           </div>
 
@@ -151,7 +152,7 @@ export function Hero() {
               Employee fee
             </div>
             <div className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
-              GHS 3
+              $3
             </div>
             <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
               flat · no interest
@@ -189,8 +190,8 @@ export function Hero() {
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-[10px] mb-[18px]">
                 {[
-                  { label: "Total accrued", val: "GHS 284K", delta: "↑ +12.4% MoM", green: false },
-                  { label: "Withdrawn today", val: "GHS 14.2K", delta: "↑ 47 transactions", green: true },
+                  { label: "Total accrued", val: "$284K", delta: "↑ +12.4% MoM", green: false },
+                  { label: "Withdrawn today", val: "$14.2K", delta: "↑ 47 transactions", green: true },
                   { label: "Recovery rate", val: "100%", delta: "Auto deducted", green: false },
                 ].map((s) => (
                   <div
@@ -266,9 +267,9 @@ export function Hero() {
                   <span>Status</span>
                 </div>
                 {[
-                  { initials: "KA", name: "Kwame Asante", amount: "GHS 450", status: "Sent", sent: true },
-                  { initials: "AB", name: "Abena Boateng", amount: "GHS 300", status: "Sent", sent: true },
-                  { initials: "YO", name: "Yaw Owusu", amount: "GHS 600", status: "Processing", sent: false },
+                  { initials: "KA", name: "Kevin Adams", amount: "$450", status: "Sent", sent: true },
+                  { initials: "AB", name: "Anna Brooks", amount: "$300", status: "Sent", sent: true },
+                  { initials: "YO", name: "Yuki Okada", amount: "$600", status: "Processing", sent: false },
                 ].map((emp) => (
                   <div
                     key={emp.name}

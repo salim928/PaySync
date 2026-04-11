@@ -26,17 +26,17 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "WageNow Ghana — Earned Wage Access for Ghana's Workforce",
-    template: "%s | WageNow Ghana",
+    default: "WageNow — Earned Wage Access for the Modern Workforce",
+    template: "%s | WageNow",
   },
   description:
-    "Give Ghana's employees real-time access to wages they've already accrued. No loans. No interest. Disbursed to MoMo in ~90 seconds.",
-  metadataBase: new URL("https://wagenow.com.gh"),
+    "Give employees real-time access to wages they've already accrued. No loans. No interest. Disbursed to mobile wallets in ~90 seconds.",
+  metadataBase: new URL("https://wagenow.io"),
   manifest: "/manifest.json",
   openGraph: {
-    siteName: "WageNow Ghana",
+    siteName: "WageNow",
     type: "website",
-    locale: "en_GH",
+    locale: "en_US",
   },
 };
 

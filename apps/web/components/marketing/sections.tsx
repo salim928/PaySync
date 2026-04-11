@@ -6,14 +6,14 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
    TICKER MARQUEE
 ═══════════════════════════════════════════════════════════ */
 const tickerItems = [
-  { bold: "GHS 3", text: "flat fee per withdrawal" },
-  { bold: "~90 seconds", text: "MoMo disbursement" },
+  { bold: "$3", text: "flat fee per withdrawal" },
+  { bold: "~90 seconds", text: "disbursement time" },
   { bold: "100%", text: "automatic payroll recovery" },
   { bold: "Zero", text: "credit risk for employers" },
-  { bold: "1.5M+", text: "formal workers addressable in Ghana" },
+  { bold: "1.5M+", text: "formal workers addressable" },
   { bold: "No app download", text: "required — WhatsApp access" },
   { bold: "Live in 5 days", text: "from CSV upload to first withdrawal" },
-  { bold: "All networks", text: "MoMo supported" },
+  { bold: "All networks", text: "supported" },
 ];
 
 export function Ticker() {
@@ -41,7 +41,7 @@ const logos = [
   { icon: "📱", name: "Mobile Money" },
   { icon: "📱", name: "All Networks" },
   { icon: "🏦", name: "Bank Transfer" },
-  { icon: "🏦", name: "GH Banks" },
+  { icon: "🏦", name: "Local Banks" },
   { icon: "💼", name: "CSV Import" },
   { icon: "💼", name: "Payroll Systems" },
 ];
@@ -70,10 +70,10 @@ export function Logos() {
    PROBLEM SECTION
 ═══════════════════════════════════════════════════════════ */
 const painCards = [
-  { icon: "💸", title: "Predatory lending fills the gap", body: "Loan apps charge GHS 60–200+ for the same amount WageNow disburses for GHS 3. Employees pay interest on money they've already earned." },
+  { icon: "💸", title: "Predatory lending fills the gap", body: "Loan apps charge 10–40x what WageNow costs. Employees pay interest on money they've already earned." },
   { icon: "⏳", title: "HR is buried in advance requests", body: "Manual salary advance processing consumes 4–8 hours of payroll officer time per month. High error rate. No audit trail." },
   { icon: "📉", title: "Financial stress kills productivity", body: "Workers distracted by financial emergencies underperform. Studies link financial stress to 20%+ productivity loss." },
-  { icon: "🔁", title: "Payroll cycle mismatch", body: "Monthly payroll was designed around bank constraints that no longer exist. MoMo rails enable real-time settlement." },
+  { icon: "🔁", title: "Payroll cycle mismatch", body: "Monthly payroll was designed around bank constraints that no longer exist. Mobile money rails enable real-time settlement." },
 ];
 
 export function Problem() {
@@ -82,16 +82,16 @@ export function Problem() {
       <ScrollReveal>
         <div className="eyebrow mb-6"><span className="inline-block w-6 h-px" style={{ background: "var(--ink4)" }} />The problem</div>
         <h2 className="font-(family-name:--font-fraunces) font-light tracking-[-0.04em] leading-[1.08] mb-5" style={{ fontSize: "clamp(34px, 3.5vw, 50px)", color: "var(--ink)" }}>
-          Ghana&apos;s workers are<br /><em className="italic" style={{ color: "var(--green2)" }}>financing</em> their<br />own salaries
+          Workers are<br /><em className="italic" style={{ color: "var(--green2)" }}>financing</em> their<br />own salaries
         </h2>
         <p className="text-[15px] leading-[1.75] mb-8" style={{ color: "var(--ink3)" }}>
-          The average Ghanaian formal worker waits 30 days to access income they earned on day one. In the gap, they turn to loan apps, loan sharks, or the HR manager — paying interest rates of 30–80% per annum on money that is already theirs.
+          The average formal worker waits 30 days to access income they earned on day one. In the gap, they turn to loan apps, loan sharks, or the HR manager — paying interest rates of 30–80% per annum on money that is already theirs.
         </p>
         <div className="rounded-r-(--r) p-5 px-6" style={{ borderLeft: "3px solid var(--green3)", background: "var(--green-bg)" }}>
           <p className="font-(family-name:--font-fraunces) text-[15px] font-light italic leading-[1.6] mb-2.5" style={{ color: "var(--ink2)" }}>
             &ldquo;Our nurses used to take payday loans every single month. Since WageNow, I haven&apos;t had one person come to me for a salary advance.&rdquo;
           </p>
-          <div className="text-[12px] font-medium" style={{ color: "var(--ink4)" }}>HR Manager — Private Hospital, Accra</div>
+          <div className="text-[12px] font-medium" style={{ color: "var(--ink4)" }}>HR Manager — Private Hospital</div>
         </div>
       </ScrollReveal>
 
@@ -117,7 +117,7 @@ const steps = [
   { n: "01", icon: "🏢", title: "Employer onboards", body: "Create your account, set your withdrawal cap — typically 50% of net salary — and configure payroll cycle dates. Takes under 20 minutes." },
   { n: "02", icon: "📋", title: "Payroll is connected", body: "Upload your CSV or connect via REST API. WageNow reads salary data and recalculates each employee's real-time earned balance every working day." },
   { n: "03", icon: "📲", title: "Employees activate", body: "Staff receive an SMS invite. They verify via phone OTP and see their live accrual balance in seconds — no app download, no bank account required." },
-  { n: "04", icon: "⚡", title: "Withdraw. Repay. Repeat.", body: "Employee taps withdraw. MoMo receives funds in ~90 seconds. On payday, deductions are automatic — zero admin, zero default risk, ever." },
+  { n: "04", icon: "⚡", title: "Withdraw. Repay. Repeat.", body: "Employee taps withdraw. Mobile wallet receives funds in ~90 seconds. On payday, deductions are automatic — zero admin, zero default risk, ever." },
 ];
 
 export function Product() {
@@ -170,11 +170,11 @@ export function Features() {
         <div>
           <div className="eyebrow mb-5"><span className="inline-block w-6 h-px" style={{ background: "var(--ink4)" }} />Platform capabilities</div>
           <h2 className="font-(family-name:--font-fraunces) font-light tracking-[-0.04em] leading-[1.06]" style={{ fontSize: "clamp(34px, 3.8vw, 54px)", color: "var(--ink)" }}>
-            Built for Ghana&apos;s<br /><em className="italic" style={{ color: "var(--green2)" }}>real</em> workforce
+            Built for the<br /><em className="italic" style={{ color: "var(--green2)" }}>real</em> workforce
           </h2>
         </div>
         <p className="text-[15px] leading-[1.75] max-w-105" style={{ color: "var(--ink3)" }}>
-          Designed around MoMo rails, low-bandwidth phones, WhatsApp, and the way Ghanaian payroll actually works — not Silicon Valley assumptions.
+          Designed around mobile money rails, low-bandwidth phones, WhatsApp, and the way payroll actually works — not Silicon Valley assumptions.
         </p>
       </div>
 
@@ -186,7 +186,7 @@ export function Features() {
             <h3 className="font-(family-name:--font-fraunces) text-[30px] font-light tracking-[-0.04em] leading-[1.1] mb-3.5" style={{ color: "var(--ink)" }}>Real-time wage accrual engine</h3>
             <p className="text-[14px] leading-[1.7] mb-7" style={{ color: "var(--ink3)" }}>Every employee&apos;s available balance recalculates daily based on working days elapsed, configured salary, and any leave data. The balance is always accurate — not estimated.</p>
             <div className="flex gap-7 pt-5" style={{ borderTop: "1px solid var(--border)" }}>
-              {[{ val: "~90", unit: "s", label: "MoMo disbursement" }, { val: "100", unit: "%", label: "Recovery rate" }, { val: "GHS 3", unit: "", label: "Per withdrawal" }].map((m) => (
+              {[{ val: "~90", unit: "s", label: "Disbursement time" }, { val: "100", unit: "%", label: "Recovery rate" }, { val: "$3", unit: "", label: "Per withdrawal" }].map((m) => (
                 <div key={m.label}>
                   <div className="font-(family-name:--font-fraunces) text-[28px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
                     <em style={{ color: "var(--green2)", fontStyle: "normal" }}>{m.val}</em>{m.unit}
@@ -206,7 +206,7 @@ export function Features() {
                   <div className="font-(family-name:--font-fraunces) text-[16px] font-light tracking-[-0.04em] mb-3" style={{ color: "var(--ink)" }}>Hello, Kofi 👋</div>
                   <div className="rounded-xl p-3.5 mb-2.5" style={{ background: "var(--ink)" }}>
                     <div className="text-[8px] font-medium tracking-[0.05em] uppercase mb-0.75" style={{ color: "rgba(255,255,255,0.4)" }}>Available to withdraw</div>
-                    <div className="font-(family-name:--font-fraunces) text-[26px] font-light tracking-[-0.04em] leading-none text-white mb-2">GHS 1,240</div>
+                    <div className="font-(family-name:--font-fraunces) text-[26px] font-light tracking-[-0.04em] leading-none text-white mb-2">$1,240</div>
                     <div className="h-0.75 rounded-sm overflow-hidden mb-1" style={{ background: "rgba(255,255,255,0.1)" }}>
                       <div className="w-[62%] h-full" style={{ background: "var(--green3)" }} />
                     </div>
@@ -215,7 +215,7 @@ export function Features() {
                     </div>
                   </div>
                   <button className="w-full rounded-lg py-2.25 text-[11px] font-semibold text-white mb-2.5 font-(family-name:--font-dm-sans)" style={{ background: "var(--green3)" }}>
-                    Withdraw to MoMo →
+                    Withdraw now →
                   </button>
                 </div>
               </div>
@@ -244,9 +244,9 @@ export function Features() {
    TRUST / SECURITY
 ═══════════════════════════════════════════════════════════ */
 const trustItems = [
-  { icon: "🏛️", title: "Bank-grade data security", body: "All payroll data is encrypted at rest and in transit using AES-256 and TLS 1.3. We never store raw MoMo wallet credentials." },
+  { icon: "🏛️", title: "Bank-grade data security", body: "All payroll data is encrypted at rest and in transit using AES-256 and TLS 1.3. We never store raw mobile wallet credentials." },
   { icon: "📋", title: "Full audit trail", body: "Every withdrawal request, disbursement, and deduction is time-stamped and logged immutably. Auditor-ready records." },
-  { icon: "🇬🇭", title: "Ghana-compliant infrastructure", body: "Built to comply with Bank of Ghana Payment Systems guidelines and Ghana Data Protection Act requirements." },
+  { icon: "🏛️", title: "Regulatory-compliant infrastructure", body: "Built to comply with local payment systems guidelines and data protection requirements in every market we serve." },
 ];
 
 export function Trust() {
@@ -271,9 +271,9 @@ export function Trust() {
    NUMBERS / STATS (dark section)
 ═══════════════════════════════════════════════════════════ */
 const stats = [
-  { num: "1.5", suffix: "M", label: "Formal workers in Ghana", note: "Addressable market · No EWA competitor" },
-  { num: "GHS 3", suffix: "", label: "Flat fee per withdrawal", note: "vs GHS 60–200+ per payday loan" },
-  { num: "~90", suffix: "s", label: "Median MoMo disbursement", note: "vs 14-day manual advance cycle" },
+  { num: "1.5", suffix: "M+", label: "Formal workers addressable", note: "Growing market · No EWA competitor" },
+  { num: "$3", suffix: "", label: "Flat fee per withdrawal", note: "vs $60–200+ per payday loan" },
+  { num: "~90", suffix: "s", label: "Median disbursement time", note: "vs 14-day manual advance cycle" },
   { num: "100", suffix: "%", label: "Payroll deduction recovery", note: "Zero credit risk — earned wages" },
 ];
 
@@ -309,12 +309,12 @@ export function Numbers() {
    COMPARISON TABLE
 ═══════════════════════════════════════════════════════════ */
 const compareRows = [
-  { label: "Cost to employee", wn: "GHS 3 flat", loan: { text: "GHS 60–200+ interest", cls: "bad" }, manual: { text: "Free", cls: "good" }, cc: { text: "30–40% APR", cls: "bad" } },
+  { label: "Cost to employee", wn: "$3 flat", loan: { text: "$60–200+ interest", cls: "bad" }, manual: { text: "Free", cls: "good" }, cc: { text: "30–40% APR", cls: "bad" } },
   { label: "Speed of access", wn: "~90 seconds", loan: { text: "Minutes–hours", cls: "mid" }, manual: { text: "Days–weeks", cls: "bad" }, cc: { text: "Instant (if approved)", cls: "mid" } },
   { label: "Credit check required", wn: "None", loan: { text: "Yes", cls: "bad" }, manual: { text: "None", cls: "good" }, cc: { text: "Yes", cls: "bad" } },
   { label: "Default risk to employer", wn: "Zero", loan: { text: "Zero", cls: "good" }, manual: { text: "High", cls: "bad" }, cc: { text: "Zero", cls: "good" } },
   { label: "HR admin burden", wn: "Fully automated", loan: { text: "None", cls: "good" }, manual: { text: "Very high", cls: "bad" }, cc: { text: "None", cls: "good" } },
-  { label: "Works without bank account", wn: "Yes — MoMo only", loan: { text: "Partial", cls: "mid" }, manual: { text: "No", cls: "bad" }, cc: { text: "No", cls: "bad" } },
+  { label: "Works without bank account", wn: "Yes — mobile wallet", loan: { text: "Partial", cls: "mid" }, manual: { text: "No", cls: "bad" }, cc: { text: "No", cls: "bad" } },
 ];
 const clsMap: Record<string, string> = { bad: "text-[#b83232]", mid: "text-[var(--gold)]", good: "text-[var(--green)]" };
 
@@ -404,8 +404,8 @@ export function Testimonials() {
    PRICING
 ═══════════════════════════════════════════════════════════ */
 const plans = [
-  { tier: "Starter", tierCls: "t-starter", name: "Starter", price: "500", cadence: "per month · up to 50 employees", features: ["WageNow EWA for all employees", "WhatsApp + PWA employee access", "Payroll CSV upload", "Employer analytics dashboard", "Monthly deduction report export", "Email & chat support"], btnCls: "pb-default", featured: false },
-  { tier: "Most popular", tierCls: "t-growth", name: "Growth", price: "2,000", cadence: "per month · up to 250 employees", features: ["Everything in Starter", "REST API payroll integration", "Priority MoMo disbursement queue", "Configurable accrual rules per dept", "Advanced workforce analytics", "Dedicated onboarding support"], btnCls: "pb-featured", featured: true },
+  { tier: "Starter", tierCls: "t-starter", name: "Starter", price: "99", cadence: "per month · up to 50 employees", features: ["WageNow EWA for all employees", "WhatsApp + PWA employee access", "Payroll CSV upload", "Employer analytics dashboard", "Monthly deduction report export", "Email & chat support"], btnCls: "pb-default", featured: false },
+  { tier: "Most popular", tierCls: "t-growth", name: "Growth", price: "399", cadence: "per month · up to 250 employees", features: ["Everything in Starter", "REST API payroll integration", "Priority disbursement queue", "Configurable accrual rules per dept", "Advanced workforce analytics", "Dedicated onboarding support"], btnCls: "pb-featured", featured: true },
   { tier: "Enterprise", tierCls: "t-ent", name: "Enterprise", price: "Custom", cadence: "250+ employees · custom contract", features: ["Everything in Growth", "Dedicated account manager", "Custom SLA + 24/7 phone support", "Custom accrual config per role & grade", "SSO & HRIS integration", "Quarterly business reviews"], btnCls: "pb-ent", featured: false },
 ];
 
@@ -418,7 +418,7 @@ export function Pricing() {
           Simple, <em className="italic" style={{ color: "var(--green2)" }}>honest</em> pricing
         </h2>
         <p className="text-[16px] leading-[1.7] max-w-130 mx-auto" style={{ color: "var(--ink3)" }}>
-          No setup fees. No percentage cuts. Employees pay GHS 3 flat per withdrawal — the lowest cost financial access in Ghana.
+          No setup fees. No percentage cuts. Employees pay a flat fee per withdrawal — the lowest cost financial access available.
         </p>
       </div>
       <div className="grid grid-cols-3 max-[1080px]:grid-cols-1 gap-5">
@@ -431,7 +431,7 @@ export function Pricing() {
               }}>{p.tier}</div>
               <div className="font-(family-name:--font-fraunces) text-[24px] font-light tracking-[-0.04em] mb-1.5" style={{ color: p.featured ? "#fff" : "var(--ink)" }}>{p.name}</div>
               <div className="font-(family-name:--font-fraunces) font-extralight tracking-[-0.05em] leading-none mb-1" style={{ fontSize: p.price === "Custom" ? 38 : 52, color: p.featured ? "#fff" : "var(--ink)" }}>
-                {p.price !== "Custom" && <sup className="text-[22px] align-super tracking-normal">GHS</sup>}{p.price}
+                {p.price !== "Custom" && <sup className="text-[22px] align-super tracking-normal">$</sup>}{p.price}
               </div>
               <div className="text-[12px] font-(family-name:--font-dm-mono) mb-7" style={{ color: p.featured ? "rgba(255,255,255,0.35)" : "var(--ink4)" }}>{p.cadence}</div>
               <div className="h-px mb-6" style={{ background: p.featured ? "rgba(255,255,255,0.08)" : "var(--border)" }} />
@@ -456,7 +456,7 @@ export function Pricing() {
         ))}
       </div>
       <p className="text-center mt-8 text-[13px] leading-[1.6]" style={{ color: "var(--ink4)" }}>
-        <strong className="font-medium" style={{ color: "var(--ink3)" }}>Employees pay GHS 3 per withdrawal.</strong> No hidden fees. No interest. No percentage of salary. Ever.
+        <strong className="font-medium" style={{ color: "var(--ink3)" }}>Employees pay a flat fee per withdrawal.</strong> No hidden fees. No interest. No percentage of salary. Ever.
       </p>
     </section>
   );
@@ -480,7 +480,7 @@ export function CTA() {
               Your employees have<br /><em className="italic" style={{ color: "var(--green3)" }}>already earned</em><br />this money.
             </h2>
             <p className="text-[15px] leading-[1.7] max-w-120" style={{ color: "rgba(255,255,255,0.4)" }}>
-              Give them access to it — without loans, interest, or any HR burden on your team. WageNow deploys in 5 days, costs GHS 500/month to start, and pays for itself the moment your first employee skips a loan app.
+              Give them access to it — without loans, interest, or any HR burden on your team. WageNow deploys in 5 days, costs $99/month to start, and pays for itself the moment your first employee skips a loan app.
             </p>
           </div>
           <div className="relative z-1 rounded-(--r-xl) p-9" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>

@@ -4,13 +4,13 @@ import { PageHeader } from "@/components/marketing/page-header";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Simple, honest pricing. No setup fees, no percentage cuts. Employees pay GHS 3 flat per withdrawal.",
+  description: "Simple, honest pricing. No setup fees, no percentage cuts. Employees pay a flat fee per withdrawal.",
 };
 
 const plans = [
   {
     tier: "Starter",
-    price: "500",
+    price: "99",
     cadence: "per month · up to 50 employees",
     features: [
       "WageNow EWA for all employees",
@@ -25,12 +25,12 @@ const plans = [
   },
   {
     tier: "Growth",
-    price: "2,000",
+    price: "399",
     cadence: "per month · up to 250 employees",
     features: [
       "Everything in Starter",
       "REST API payroll integration",
-      "Priority MoMo disbursement queue",
+      "Priority disbursement queue",
       "Configurable accrual rules per dept",
       "Advanced workforce analytics",
       "Dedicated onboarding support",
@@ -58,11 +58,11 @@ const plans = [
 const faqs = [
   {
     q: "What does the employee pay?",
-    a: "GHS 3 flat per withdrawal. No interest, no percentage of salary, no hidden charges. This is deducted from the withdrawal amount, not from the employer.",
+    a: "A flat fee per withdrawal. No interest, no percentage of salary, no hidden charges. This is deducted from the withdrawal amount, not from the employer.",
   },
   {
     q: "Is there a setup fee?",
-    a: "No. Zero setup fees, zero integration fees. You pay the monthly platform fee and your employees pay GHS 3 per withdrawal. That's it.",
+    a: "No. Zero setup fees, zero integration fees. You pay the monthly platform fee and your employees pay a flat fee per withdrawal. That's it.",
   },
   {
     q: "What if we have more than 250 employees?",
@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "What payment methods do you accept?",
-    a: "We accept bank transfer, MoMo, and card payments. Enterprise clients can arrange invoicing on NET 30 terms.",
+    a: "We accept bank transfer, mobile money, and card payments. Enterprise clients can arrange invoicing on NET 30 terms.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title={<>Simple, <em className="italic" style={{ color: "var(--green2)" }}>honest</em> pricing</>}
-        subtitle="No setup fees. No percentage cuts. Employees pay GHS 3 flat per withdrawal — the lowest cost financial access in Ghana."
+        subtitle="No setup fees. No percentage cuts. Employees pay a flat fee per withdrawal — the lowest cost financial access available."
       />
 
       <section className="section-padding pb-20">
@@ -118,7 +118,7 @@ export default function PricingPage() {
                 className="font-(family-name:--font-fraunces) font-extralight tracking-[-0.05em] leading-none mb-1"
                 style={{ fontSize: p.price === "Custom" ? 38 : 52, color: p.featured ? "#fff" : "var(--ink)" }}
               >
-                {p.price !== "Custom" && <sup className="text-[22px] align-super tracking-normal">GHS</sup>}
+                {p.price !== "Custom" && <sup className="text-[22px] align-super tracking-normal">$</sup>}
                 {p.price}
               </div>
               <div
@@ -163,7 +163,7 @@ export default function PricingPage() {
           ))}
         </div>
         <p className="text-center mt-8 text-[13px] leading-[1.6]" style={{ color: "var(--ink4)" }}>
-          <strong className="font-medium" style={{ color: "var(--ink3)" }}>Employees pay GHS 3 per withdrawal.</strong>{" "}
+          <strong className="font-medium" style={{ color: "var(--ink3)" }}>Employees pay a flat fee per withdrawal.</strong>{" "}
           No hidden fees. No interest. No percentage of salary. Ever.
         </p>
       </section>

@@ -45,7 +45,7 @@ const endpoints = [
   {
     method: "POST",
     path: "/api/v1/ewa/withdraw",
-    description: "Submit a withdrawal request. Disburses to the employee's MoMo wallet. Returns transaction ID and status.",
+    description: "Submit a withdrawal request. Disburses to the employee's mobile wallet. Returns transaction ID and status.",
   },
   {
     method: "GET",
@@ -94,7 +94,7 @@ export default function APIDocsPage() {
             Base URL
           </h3>
           <code className="text-[15px] font-(family-name:--font-dm-mono)" style={{ color: "var(--green3)" }}>
-            https://api.wagenow.com.gh/api/v1
+            https://api.wagenow.io/api/v1
           </code>
           <div className="mt-6 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
             <h3 className="text-[14px] font-semibold mb-3" style={{ color: "rgba(255,255,255,0.5)" }}>

@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 const events = [
   {
     name: "ewa.withdrawal.requested",
-    description: "Fired when an employee submits a withdrawal request. Includes employee ID, amount, and MoMo number.",
+    description: "Fired when an employee submits a withdrawal request. Includes employee ID, amount, and wallet details.",
   },
   {
     name: "ewa.withdrawal.completed",
-    description: "Fired when funds are successfully disbursed to the employee's MoMo wallet. Includes transaction reference.",
+    description: "Fired when funds are successfully disbursed to the employee's mobile wallet. Includes transaction reference.",
   },
   {
     name: "ewa.withdrawal.failed",
-    description: "Fired when a disbursement fails (e.g., invalid MoMo number, network timeout). Includes failure reason.",
+    description: "Fired when a disbursement fails (e.g., invalid wallet number, network timeout). Includes failure reason.",
   },
   {
     name: "employee.created",
@@ -45,9 +45,9 @@ const examplePayload = `{
     "employee_id": "emp_def456",
     "amount": 150.00,
     "fee": 3.00,
-    "currency": "GHS",
-    "momo_network": "mtn",
-    "momo_reference": "MTN-789012",
+    "currency": "USD",
+    "wallet_network": "mobile_money",
+    "wallet_reference": "WLT-789012",
     "status": "completed"
   }
 }`;

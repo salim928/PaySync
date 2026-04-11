@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/marketing/page-header";
 
 export const metadata: Metadata = {
   title: "Earned Wage Access",
-  description: "Give employees real-time access to wages they've already earned. No loans, no interest — disbursed to MoMo in ~90 seconds.",
+  description: "Give employees real-time access to wages they've already earned. No loans, no interest — disbursed to mobile wallets in ~90 seconds.",
 };
 
 const benefits = [
@@ -15,13 +15,13 @@ const benefits = [
   },
   {
     icon: "02",
-    title: "GHS 3 flat fee per withdrawal",
-    body: "No interest, no percentage of salary, no hidden charges. The lowest cost financial access product in Ghana — cheaper than any loan app or bank overdraft.",
+    title: "Flat fee per withdrawal",
+    body: "No interest, no percentage of salary, no hidden charges. The lowest cost financial access product available — cheaper than any loan app or bank overdraft.",
   },
   {
     icon: "03",
-    title: "MoMo disbursement in ~90 seconds",
-    body: "Funds hit the employee's Mobile Money wallet in about 90 seconds. All networks supported — MTN, Vodafone Cash, AirtelTigo Money.",
+    title: "Disbursement in ~90 seconds",
+    body: "Funds hit the employee's mobile wallet in about 90 seconds. All major mobile money networks and bank accounts supported.",
   },
   {
     icon: "04",
@@ -45,8 +45,8 @@ export default function EWAPage() {
     <>
       <PageHeader
         eyebrow="Product"
-        title={<>Earned wage access for <em className="italic" style={{ color: "var(--green2)" }}>Ghana&apos;s</em> workforce</>}
-        subtitle="WageNow lets employees withdraw a portion of their already-earned salary at any time during the pay cycle — disbursed to Mobile Money in about 90 seconds, for a flat GHS 3 fee."
+        title={<>Earned wage access for the <em className="italic" style={{ color: "var(--green2)" }}>modern</em> workforce</>}
+        subtitle="WageNow lets employees withdraw a portion of their already-earned salary at any time during the pay cycle — disbursed to their mobile wallet in about 90 seconds, for a flat fee."
       />
 
       <section className="section-padding pb-[120px] max-[1080px]:pb-20">

@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/marketing/page-header";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "WageNow is building the financial infrastructure that gives Ghana's workforce real-time access to the wages they've already earned.",
+  description: "WageNow is building the financial infrastructure that gives the modern workforce real-time access to the wages they've already earned.",
 };
 
 const values = [
@@ -14,27 +14,27 @@ const values = [
   },
   {
     title: "Radical simplicity",
-    body: "Financial products in Ghana are overengineered and under-explained. We build things that work on the first try, for people who don't have time to read a manual.",
+    body: "Financial products are overengineered and under-explained. We build things that work on the first try, for people who don't have time to read a manual.",
   },
   {
     title: "Zero exploitation",
-    body: "No interest. No percentage of salary. No predatory fees. GHS 3 flat — less than a sachet of water. We make money by being useful, not by being extractive.",
+    body: "No interest. No percentage of salary. No predatory fees. A flat fee per withdrawal. We make money by being useful, not by being extractive.",
   },
   {
     title: "Speed as a feature",
-    body: "~90 second MoMo disbursement. 5-day employer onboarding. Instant accrual visibility. Speed isn't a nice-to-have — for someone who needs money today, it's everything.",
+    body: "~90 second disbursement. 5-day employer onboarding. Instant accrual visibility. Speed isn't a nice-to-have — for someone who needs money today, it's everything.",
   },
 ];
 
 const stats = [
   { value: "2026", label: "Founded" },
-  { value: "Accra", label: "Headquarters" },
-  { value: "GHS 3", label: "Flat fee per withdrawal" },
+  { value: "Global", label: "Headquarters" },
+  { value: "$3", label: "Flat fee per withdrawal" },
   { value: "~90s", label: "Disbursement time" },
 ];
 
 const team = [
-  { name: "Leadership Team", role: "Building the future of earned wage access in Ghana", count: "Growing" },
+  { name: "Leadership Team", role: "Building the future of earned wage access", count: "Growing" },
 ];
 
 export default function AboutPage() {
@@ -78,12 +78,12 @@ export default function AboutPage() {
               Our mission
             </h2>
             <p className="text-[15px] leading-[1.8]" style={{ color: "var(--ink3)" }}>
-              1.5 million formal workers in Ghana wait an average of 30 days to access income they earned on day one.
+              Millions of formal workers wait an average of 30 days to access income they earned on day one.
               In the gap, they turn to loan apps charging 30–80% APR on money that is already theirs.
             </p>
             <p className="text-[15px] leading-[1.8] mt-4" style={{ color: "var(--ink3)" }}>
               WageNow eliminates that gap. We give employees real-time visibility into what they&apos;ve earned and the ability
-              to withdraw it instantly to Mobile Money — for a flat GHS 3 fee. No loans. No interest. No credit checks.
+              to withdraw it instantly to their mobile wallet — for a flat fee. No loans. No interest. No credit checks.
             </p>
           </div>
           <div>
@@ -94,11 +94,11 @@ export default function AboutPage() {
               Why now
             </h2>
             <p className="text-[15px] leading-[1.8]" style={{ color: "var(--ink3)" }}>
-              Mobile Money penetration in Ghana has crossed 60%. MoMo rails can settle transactions in under 90 seconds.
+              Mobile money penetration is growing rapidly worldwide. Modern payment rails can settle transactions in under 90 seconds.
               The infrastructure that made the monthly pay cycle necessary no longer constrains us.
             </p>
             <p className="text-[15px] leading-[1.8] mt-4" style={{ color: "var(--ink3)" }}>
-              At the same time, the predatory lending market in Ghana is growing. Loan apps are filling a gap that
+              At the same time, the predatory lending market is growing. Loan apps are filling a gap that
               shouldn&apos;t exist. WageNow replaces exploitation with infrastructure — giving workers what&apos;s already theirs.
             </p>
           </div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
           </h3>
           <p className="text-[15px] leading-[1.7] max-w-[480px] mx-auto mb-6" style={{ color: "rgba(255,255,255,0.45)" }}>
             We&apos;re building something that matters. If you want to work on financial infrastructure that directly
-            improves the lives of Ghana&apos;s workers, we&apos;d love to hear from you.
+            improves the lives of workers everywhere, we&apos;d love to hear from you.
           </p>
           <Link
             href="/careers"

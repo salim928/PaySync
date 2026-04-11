@@ -22,9 +22,8 @@ const footerLinks = {
     { label: "Press", href: "/press" },
   ],
   Contact: [
-    { label: "hello@wagenow.com.gh", href: "mailto:hello@wagenow.com.gh" },
-    { label: "+233 30 000 0000", href: "tel:+233300000000" },
-    { label: "Airport City, Accra", href: "#" },
+    { label: "hello@wagenow.io", href: "mailto:hello@wagenow.io" },
+    { label: "Contact us", href: "#contact" },
     { label: "Schedule a demo", href: "#contact" },
   ],
 };
@@ -42,10 +41,10 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2.5 font-semibold text-[16px] tracking-[-0.02em] text-white mb-4">
               <LogoMark size={30} />
-              WageNow Ghana
+              WageNow
             </div>
             <p className="text-[13px] leading-[1.7] mb-7" style={{ color: "rgba(255,255,255,0.35)" }}>
-              Earned wage access for Ghana&apos;s formal workforce. Built on MoMo rails. Deployed in days, not months.
+              Earned wage access for the modern workforce. Built on mobile money rails. Deployed in days, not months.
             </p>
             <div
               className="inline-flex items-center gap-1.75 rounded-lg px-3.5 py-2 text-[12px]"
@@ -97,7 +96,7 @@ export function Footer() {
             className="text-[12px] font-(family-name:--font-dm-mono)"
             style={{ color: "rgba(255,255,255,0.2)" }}
           >
-            © 2026 WageNow Ghana Ltd. · Built by Pactium.
+            © 2026 WageNow Ltd. · Built by Pactium.
           </div>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (

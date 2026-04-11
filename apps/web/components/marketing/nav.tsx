@@ -23,7 +23,7 @@ export function Nav() {
         style={{ color: "var(--ink)" }}
       >
         <LogoMark size={34} />
-        WageNow Ghana
+        WageNow
       </Link>
 
       {/* Center links */}
