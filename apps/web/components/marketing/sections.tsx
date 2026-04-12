@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
    TICKER MARQUEE
 ═══════════════════════════════════════════════════════════ */
 const tickerItems = [
-  { bold: "$3", text: "flat fee per withdrawal" },
+  { bold: "GHS 3", text: "flat fee per withdrawal" },
   { bold: "~90 seconds", text: "disbursement time" },
   { bold: "100%", text: "automatic payroll recovery" },
   { bold: "Zero", text: "credit risk for employers" },
@@ -186,7 +186,7 @@ export function Features() {
             <h3 className="font-(family-name:--font-fraunces) text-[30px] font-light tracking-[-0.04em] leading-[1.1] mb-3.5" style={{ color: "var(--ink)" }}>Real-time wage accrual engine</h3>
             <p className="text-[14px] leading-[1.7] mb-7" style={{ color: "var(--ink3)" }}>Every employee&apos;s available balance recalculates daily based on working days elapsed, configured salary, and any leave data. The balance is always accurate — not estimated.</p>
             <div className="flex gap-7 pt-5" style={{ borderTop: "1px solid var(--border)" }}>
-              {[{ val: "~90", unit: "s", label: "Disbursement time" }, { val: "100", unit: "%", label: "Recovery rate" }, { val: "$3", unit: "", label: "Per withdrawal" }].map((m) => (
+              {[{ val: "~90", unit: "s", label: "Disbursement time" }, { val: "100", unit: "%", label: "Recovery rate" }, { val: "GHS 3", unit: "", label: "Per withdrawal" }].map((m) => (
                 <div key={m.label}>
                   <div className="font-(family-name:--font-fraunces) text-[28px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
                     <em style={{ color: "var(--green2)", fontStyle: "normal" }}>{m.val}</em>{m.unit}
@@ -206,7 +206,7 @@ export function Features() {
                   <div className="font-(family-name:--font-fraunces) text-[16px] font-light tracking-[-0.04em] mb-3" style={{ color: "var(--ink)" }}>Hello, Kofi 👋</div>
                   <div className="rounded-xl p-3.5 mb-2.5" style={{ background: "var(--ink)" }}>
                     <div className="text-[8px] font-medium tracking-[0.05em] uppercase mb-0.75" style={{ color: "rgba(255,255,255,0.4)" }}>Available to withdraw</div>
-                    <div className="font-(family-name:--font-fraunces) text-[26px] font-light tracking-[-0.04em] leading-none text-white mb-2">$1,240</div>
+                    <div className="font-(family-name:--font-fraunces) text-[26px] font-light tracking-[-0.04em] leading-none text-white mb-2">GHS 1,240</div>
                     <div className="h-0.75 rounded-sm overflow-hidden mb-1" style={{ background: "rgba(255,255,255,0.1)" }}>
                       <div className="w-[62%] h-full" style={{ background: "var(--green3)" }} />
                     </div>
@@ -272,7 +272,7 @@ export function Trust() {
 ═══════════════════════════════════════════════════════════ */
 const stats = [
   { num: "1.5", suffix: "M+", label: "Formal workers addressable", note: "Growing market · No EWA competitor" },
-  { num: "$3", suffix: "", label: "Flat fee per withdrawal", note: "vs $60–200+ per payday loan" },
+  { num: "GHS 3", suffix: "", label: "Flat fee per withdrawal", note: "vs GHS 60–200+ per payday loan" },
   { num: "~90", suffix: "s", label: "Median disbursement time", note: "vs 14-day manual advance cycle" },
   { num: "100", suffix: "%", label: "Payroll deduction recovery", note: "Zero credit risk — earned wages" },
 ];
@@ -309,7 +309,7 @@ export function Numbers() {
    COMPARISON TABLE
 ═══════════════════════════════════════════════════════════ */
 const compareRows = [
-  { label: "Cost to employee", wn: "$3 flat", loan: { text: "$60–200+ interest", cls: "bad" }, manual: { text: "Free", cls: "good" }, cc: { text: "30–40% APR", cls: "bad" } },
+  { label: "Cost to employee", wn: "GHS 3 flat", loan: { text: "GHS 60–200+ interest", cls: "bad" }, manual: { text: "Free", cls: "good" }, cc: { text: "30–40% APR", cls: "bad" } },
   { label: "Speed of access", wn: "~90 seconds", loan: { text: "Minutes–hours", cls: "mid" }, manual: { text: "Days–weeks", cls: "bad" }, cc: { text: "Instant (if approved)", cls: "mid" } },
   { label: "Credit check required", wn: "None", loan: { text: "Yes", cls: "bad" }, manual: { text: "None", cls: "good" }, cc: { text: "Yes", cls: "bad" } },
   { label: "Default risk to employer", wn: "Zero", loan: { text: "Zero", cls: "good" }, manual: { text: "High", cls: "bad" }, cc: { text: "Zero", cls: "good" } },
@@ -404,8 +404,8 @@ export function Testimonials() {
    PRICING
 ═══════════════════════════════════════════════════════════ */
 const plans = [
-  { tier: "Starter", tierCls: "t-starter", name: "Starter", price: "99", cadence: "per month · up to 50 employees", features: ["WageNow EWA for all employees", "WhatsApp + PWA employee access", "Payroll CSV upload", "Employer analytics dashboard", "Monthly deduction report export", "Email & chat support"], btnCls: "pb-default", featured: false },
-  { tier: "Most popular", tierCls: "t-growth", name: "Growth", price: "399", cadence: "per month · up to 250 employees", features: ["Everything in Starter", "REST API payroll integration", "Priority disbursement queue", "Configurable accrual rules per dept", "Advanced workforce analytics", "Dedicated onboarding support"], btnCls: "pb-featured", featured: true },
+  { tier: "Starter", tierCls: "t-starter", name: "Starter", price: "500", cadence: "per month · up to 50 employees", features: ["WageNow EWA for all employees", "WhatsApp + PWA employee access", "Payroll CSV upload", "Employer analytics dashboard", "Monthly deduction report export", "Email & chat support"], btnCls: "pb-default", featured: false },
+  { tier: "Most popular", tierCls: "t-growth", name: "Growth", price: "2,000", cadence: "per month · up to 250 employees", features: ["Everything in Starter", "REST API payroll integration", "Priority disbursement queue", "Configurable accrual rules per dept", "Advanced workforce analytics", "Dedicated onboarding support"], btnCls: "pb-featured", featured: true },
   { tier: "Enterprise", tierCls: "t-ent", name: "Enterprise", price: "Custom", cadence: "250+ employees · custom contract", features: ["Everything in Growth", "Dedicated account manager", "Custom SLA + 24/7 phone support", "Custom accrual config per role & grade", "SSO & HRIS integration", "Quarterly business reviews"], btnCls: "pb-ent", featured: false },
 ];
 
@@ -431,7 +431,7 @@ export function Pricing() {
               }}>{p.tier}</div>
               <div className="font-(family-name:--font-fraunces) text-[24px] font-light tracking-[-0.04em] mb-1.5" style={{ color: p.featured ? "#fff" : "var(--ink)" }}>{p.name}</div>
               <div className="font-(family-name:--font-fraunces) font-extralight tracking-[-0.05em] leading-none mb-1" style={{ fontSize: p.price === "Custom" ? 38 : 52, color: p.featured ? "#fff" : "var(--ink)" }}>
-                {p.price !== "Custom" && <sup className="text-[22px] align-super tracking-normal">$</sup>}{p.price}
+                {p.price !== "Custom" && <sup className="text-[16px] align-super tracking-normal mr-1">GHS</sup>}{p.price}
               </div>
               <div className="text-[12px] font-(family-name:--font-dm-mono) mb-7" style={{ color: p.featured ? "rgba(255,255,255,0.35)" : "var(--ink4)" }}>{p.cadence}</div>
               <div className="h-px mb-6" style={{ background: p.featured ? "rgba(255,255,255,0.08)" : "var(--border)" }} />
@@ -480,7 +480,7 @@ export function CTA() {
               Your employees have<br /><em className="italic" style={{ color: "var(--green3)" }}>already earned</em><br />this money.
             </h2>
             <p className="text-[15px] leading-[1.7] max-w-120" style={{ color: "rgba(255,255,255,0.4)" }}>
-              Give them access to it — without loans, interest, or any HR burden on your team. WageNow deploys in 5 days, costs $99/month to start, and pays for itself the moment your first employee skips a loan app.
+              Give them access to it — without loans, interest, or any HR burden on your team. WageNow deploys in 5 days, costs GHS 500/month to start, and pays for itself the moment your first employee skips a loan app.
             </p>
           </div>
           <div className="relative z-1 rounded-(--r-xl) p-9" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>

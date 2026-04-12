@@ -78,8 +78,8 @@ export default function SecurityPage() {
           </h3>
           <p className="text-[14px] leading-[1.75] max-w-[600px]" style={{ color: "rgba(255,255,255,0.5)" }}>
             If you discover a security vulnerability, please report it to{" "}
-            <a href="mailto:security@wagenow.io" className="underline" style={{ color: "rgba(255,255,255,0.7)" }}>
-              security@wagenow.io
+            <a href="mailto:security@wagenow.com.gh" className="underline" style={{ color: "rgba(255,255,255,0.7)" }}>
+              security@wagenow.com.gh
             </a>
             . We take all reports seriously and will respond within 24 hours.
           </p>

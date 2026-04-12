@@ -28,8 +28,8 @@ const values = [
 
 const stats = [
   { value: "2026", label: "Founded" },
-  { value: "Global", label: "Headquarters" },
-  { value: "$3", label: "Flat fee per withdrawal" },
+  { value: "Accra, Ghana", label: "Headquarters" },
+  { value: "GHS 3", label: "Flat fee per withdrawal" },
   { value: "~90s", label: "Disbursement time" },
 ];
 

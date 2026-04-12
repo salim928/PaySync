@@ -31,12 +31,12 @@ export const metadata: Metadata = {
   },
   description:
     "Give employees real-time access to wages they've already accrued. No loans. No interest. Disbursed to mobile wallets in ~90 seconds.",
-  metadataBase: new URL("https://wagenow.io"),
+  metadataBase: new URL("https://wagenow.com.gh"),
   manifest: "/manifest.json",
   openGraph: {
     siteName: "WageNow",
     type: "website",
-    locale: "en_US",
+    locale: "en_GH",
   },
 };
 

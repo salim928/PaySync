@@ -31,7 +31,7 @@ const coverage = [
 
 const facts = [
   { label: "Founded", value: "2026" },
-  { label: "Headquarters", value: "Global" },
+  { label: "Headquarters", value: "Accra, Ghana" },
   { label: "Product", value: "Earned Wage Access (EWA)" },
   { label: "Addressable market", value: "1.5M+ formal workers" },
   { label: "Disbursement speed", value: "~90 seconds to mobile wallet" },
@@ -46,7 +46,7 @@ export default function PressPage() {
       <PageHeader
         eyebrow="Press"
         title={<>Press & <em className="italic" style={{ color: "var(--green2)" }}>media</em></>}
-        subtitle="For media enquiries, interviews, or press assets, contact press@wagenow.io. We typically respond within 24 hours."
+        subtitle="For media enquiries, interviews, or press assets, contact press@wagenow.com.gh. We typically respond within 24 hours."
       />
 
       {/* Brand assets */}

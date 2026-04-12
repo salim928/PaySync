@@ -45,9 +45,9 @@ const examplePayload = `{
     "employee_id": "emp_def456",
     "amount": 150.00,
     "fee": 3.00,
-    "currency": "USD",
-    "wallet_network": "mobile_money",
-    "wallet_reference": "WLT-789012",
+    "currency": "GHS",
+    "momo_network": "mtn",
+    "momo_reference": "MP-789012",
     "status": "completed"
   }
 }`;

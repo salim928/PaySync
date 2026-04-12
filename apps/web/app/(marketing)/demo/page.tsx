@@ -148,8 +148,8 @@ function EmployeeScreen({ screen }: { screen: string }) {
         <div className="flex-1 px-5 animate-[fadeUp_0.4s_ease_both]">
           <div className="rounded-xl p-5 mb-3" style={{ background: "#18160f" }}>
             <p className="text-[10px] font-medium mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Available to withdraw</p>
-            <p className="text-[28px] font-light tracking-tight text-white font-(family-name:--font-fraunces)">$847.50</p>
-            <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.35)" }}>of $1,695.00 earned this cycle</p>
+            <p className="text-[28px] font-light tracking-tight text-white font-(family-name:--font-fraunces)">GHS 847.50</p>
+            <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.35)" }}>of GHS 1,695.00 earned this cycle</p>
           </div>
           <div className="rounded-xl p-4" style={{ background: "#fff", border: "1px solid #eee" }}>
             <p className="text-[10px] font-semibold tracking-wide uppercase mb-2" style={{ color: "#999" }}>Quick actions</p>
@@ -169,22 +169,22 @@ function EmployeeScreen({ screen }: { screen: string }) {
         <div className="flex-1 px-5 animate-[fadeUp_0.4s_ease_both]">
           <div className="rounded-xl p-5 mb-3" style={{ background: "#18160f" }}>
             <p className="text-[10px] font-medium mb-1" style={{ color: "rgba(255,255,255,0.5)" }}>Earned this cycle</p>
-            <p className="text-[28px] font-light tracking-tight text-white font-(family-name:--font-fraunces)">$1,695.00</p>
+            <p className="text-[28px] font-light tracking-tight text-white font-(family-name:--font-fraunces)">GHS 1,695.00</p>
             <div className="mt-3 h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.1)" }}>
               <div className="h-full rounded-full" style={{ width: "50%", background: "#28c840" }} />
             </div>
             <div className="flex justify-between mt-1.5">
               <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.4)" }}>50% accessible</span>
-              <span className="text-[9px]" style={{ color: "#28c840" }}>$847.50</span>
+              <span className="text-[9px]" style={{ color: "#28c840" }}>GHS 847.50</span>
             </div>
           </div>
           <div className="rounded-xl p-4" style={{ background: "#fff", border: "1px solid #eee" }}>
             <p className="text-[10px] font-semibold tracking-wide uppercase mb-3" style={{ color: "#999" }}>Earning breakdown</p>
             {[
               { label: "Days worked", value: "18 of 22" },
-              { label: "Daily rate", value: "$94.17" },
-              { label: "Already withdrawn", value: "$0.00" },
-              { label: "Available now", value: "$847.50" },
+              { label: "Daily rate", value: "GHS 94.17" },
+              { label: "Already withdrawn", value: "GHS 0.00" },
+              { label: "Available now", value: "GHS 847.50" },
             ].map((r) => (
               <div key={r.label} className="flex justify-between py-1.5" style={{ borderBottom: "1px solid #f5f3ee" }}>
                 <span className="text-[11px]" style={{ color: "#999" }}>{r.label}</span>
@@ -201,9 +201,9 @@ function EmployeeScreen({ screen }: { screen: string }) {
           <div className="rounded-xl p-5 text-center mb-4" style={{ background: "#fff", border: "1px solid #eee" }}>
             <p className="text-[10px] mb-2" style={{ color: "#999" }}>Amount</p>
             <p className="text-[36px] font-light tracking-tight font-(family-name:--font-fraunces)" style={{ color: "#18160f" }}>
-              $200
+              GHS 200
             </p>
-            <p className="text-[10px] mt-1" style={{ color: "#999" }}>Fee: $1.50 flat</p>
+            <p className="text-[10px] mt-1" style={{ color: "#999" }}>Fee: GHS 1.50 flat</p>
           </div>
           <div className="rounded-xl p-4 mb-4" style={{ background: "#fff", border: "1px solid #eee" }}>
             <div className="flex items-center gap-3">
@@ -234,7 +234,7 @@ function EmployeeScreen({ screen }: { screen: string }) {
             />
           </div>
           <p className="text-[15px] font-medium mb-1" style={{ color: "#18160f" }}>Processing</p>
-          <p className="text-[12px] text-center" style={{ color: "#999" }}>Sending $200 to your<br />mobile wallet...</p>
+          <p className="text-[12px] text-center" style={{ color: "#999" }}>Sending GHS 200 to your<br />MoMo wallet...</p>
           <div className="mt-6 w-full max-w-[200px]">
             {["Validating balance", "Initiating transfer", "Waiting for confirmation"].map((s, i) => (
               <div key={s} className="flex items-center gap-2 py-1.5">
@@ -264,15 +264,15 @@ function EmployeeScreen({ screen }: { screen: string }) {
           </div>
           <p className="text-[17px] font-medium mb-1" style={{ color: "#18160f" }}>Money sent!</p>
           <p className="text-[24px] font-light tracking-tight font-(family-name:--font-fraunces) mb-1" style={{ color: "#0f7a45" }}>
-            $200.00
+            GHS 200.00
           </p>
-          <p className="text-[11px] mb-6" style={{ color: "#999" }}>Received in mobile wallet • •••• 5678</p>
+          <p className="text-[11px] mb-6" style={{ color: "#999" }}>Received in MoMo wallet • •••• 5678</p>
           <div className="w-full rounded-xl p-4" style={{ background: "#fff", border: "1px solid #eee" }}>
             {[
               { label: "Transaction ID", value: "WN-2026-04821" },
-              { label: "Fee charged", value: "$1.50" },
+              { label: "Fee charged", value: "GHS 1.50" },
               { label: "Time to receive", value: "~87 seconds" },
-              { label: "Remaining balance", value: "$647.50" },
+              { label: "Remaining balance", value: "GHS 647.50" },
             ].map((r) => (
               <div key={r.label} className="flex justify-between py-1.5" style={{ borderBottom: "1px solid #f5f3ee" }}>
                 <span className="text-[10px]" style={{ color: "#999" }}>{r.label}</span>
@@ -368,11 +368,11 @@ function EmployerScreen({ screen }: { screen: string }) {
             </span>
           </div>
           {[
-            { name: "Ama Mensah", amount: "$200", time: "2 min ago", status: "Sent" },
-            { name: "James Carter", amount: "$450", time: "8 min ago", status: "Sent" },
-            { name: "Lisa Park", amount: "$300", time: "14 min ago", status: "Sent" },
-            { name: "David Osei", amount: "$150", time: "22 min ago", status: "Sent" },
-            { name: "Sarah Chen", amount: "$500", time: "31 min ago", status: "Sent" },
+            { name: "Ama Mensah", amount: "GHS 200", time: "2 min ago", status: "Sent" },
+            { name: "Kojo Asare", amount: "GHS 450", time: "8 min ago", status: "Sent" },
+            { name: "Akosua Mensa", amount: "GHS 300", time: "14 min ago", status: "Sent" },
+            { name: "David Osei", amount: "GHS 150", time: "22 min ago", status: "Sent" },
+            { name: "Esi Nyarko", amount: "GHS 500", time: "31 min ago", status: "Sent" },
           ].map((tx, i) => (
             <div
               key={tx.name}
@@ -400,9 +400,9 @@ function EmployerScreen({ screen }: { screen: string }) {
           <h3 className="text-[14px] font-medium mb-4" style={{ color: "var(--ink)" }}>Dashboard overview</h3>
           <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4">
             {[
-              { label: "Total disbursed", value: "$84.2K", sub: "This month" },
+              { label: "Total disbursed", value: "GHS 84.2K", sub: "This month" },
               { label: "Active users", value: "189", sub: "of 247 enrolled" },
-              { label: "Avg. withdrawal", value: "$312", sub: "Per transaction" },
+              { label: "Avg. withdrawal", value: "GHS 312", sub: "Per transaction" },
               { label: "Recovery rate", value: "100%", sub: "Auto deducted" },
             ].map((s) => (
               <div key={s.label} className="rounded-lg p-3 sm:p-3.5" style={{ background: "var(--bg)", border: "1px solid var(--border)" }}>
@@ -441,7 +441,7 @@ function EmployerScreen({ screen }: { screen: string }) {
               <span className="text-[12px] font-semibold" style={{ color: "var(--green)" }}>Report ready</span>
             </div>
             <p className="text-[11px] leading-relaxed" style={{ color: "var(--green)" }}>
-              March 2026 deduction report generated. Total to deduct: $84,200 across 189 employees.
+              March 2026 deduction report generated. Total to deduct: GHS 84,200 across 189 employees.
             </p>
           </div>
           <div className="rounded-xl overflow-hidden" style={{ border: "1px solid var(--border)" }}>
@@ -451,10 +451,10 @@ function EmployerScreen({ screen }: { screen: string }) {
               <span>Deduct</span>
             </div>
             {[
-              { name: "Ama Mensah", withdrawn: "$650", deduct: "$651.50" },
-              { name: "James Carter", withdrawn: "$900", deduct: "$903" },
-              { name: "Lisa Park", withdrawn: "$300", deduct: "$301.50" },
-              { name: "David Osei", withdrawn: "$450", deduct: "$451.50" },
+              { name: "Ama Mensah", withdrawn: "GHS 650", deduct: "GHS 651.50" },
+              { name: "Kojo Asare", withdrawn: "GHS 900", deduct: "GHS 903" },
+              { name: "Akosua Mensa", withdrawn: "GHS 300", deduct: "GHS 301.50" },
+              { name: "David Osei", withdrawn: "GHS 450", deduct: "GHS 451.50" },
             ].map((r) => (
               <div
                 key={r.name}

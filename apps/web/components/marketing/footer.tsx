@@ -22,8 +22,9 @@ const footerLinks = {
     { label: "Press", href: "/press" },
   ],
   Contact: [
-    { label: "hello@wagenow.io", href: "mailto:hello@wagenow.io" },
-    { label: "Contact us", href: "#contact" },
+    { label: "hello@wagenow.com.gh", href: "mailto:hello@wagenow.com.gh" },
+    { label: "+233 30 000 0000", href: "tel:+233300000000" },
+    { label: "Airport City, Accra", href: "#contact" },
     { label: "Schedule a demo", href: "#contact" },
   ],
 };
@@ -96,7 +97,7 @@ export function Footer() {
             className="text-[12px] font-(family-name:--font-dm-mono)"
             style={{ color: "rgba(255,255,255,0.2)" }}
           >
-            © 2026 WageNow Ltd. · Built by Pactium.
+            © 2026 WageNow Ghana Ltd. · Built by Pactium.
           </div>
           <div className="flex gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (

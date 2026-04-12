@@ -10,42 +10,42 @@ const openings = [
   {
     title: "Senior Backend Engineer",
     department: "Engineering",
-    location: "Remote",
+    location: "Accra / Remote",
     type: "Full-time",
     description: "Build and scale the FastAPI backend powering EWA transactions, payroll integrations, and mobile wallet disbursements. Python, PostgreSQL, async architecture.",
   },
   {
     title: "Frontend Engineer",
     department: "Engineering",
-    location: "Remote",
+    location: "Accra / Remote",
     type: "Full-time",
     description: "Own the employer dashboard and employee PWA built with Next.js and React. Focus on performance, accessibility, and delightful UX.",
   },
   {
     title: "Product Designer",
     department: "Design",
-    location: "Remote",
+    location: "Accra / Remote",
     type: "Full-time",
     description: "Design financial products that work for people who've never used one. User research, prototyping, and design systems for web and WhatsApp interfaces.",
   },
   {
     title: "Business Development Lead",
     department: "Commercial",
-    location: "Remote / Hybrid",
+    location: "Accra / Hybrid",
     type: "Full-time",
     description: "Own employer acquisition in target markets. Build relationships with HR leaders, run demos, and close deals. Background in B2B SaaS or fintech preferred.",
   },
   {
     title: "Customer Success Manager",
     department: "Operations",
-    location: "Remote / Hybrid",
+    location: "Accra / Hybrid",
     type: "Full-time",
     description: "Onboard new employers, train HR teams, and ensure successful deployment. Be the voice of the customer inside WageNow.",
   },
 ];
 
 const perks = [
-  { title: "Competitive salary", body: "Market-rate compensation in your preferred currency." },
+  { title: "Competitive salary", body: "Market-rate compensation in GHS or USD, benchmarked to international standards." },
   { title: "Remote-friendly", body: "Work from anywhere. We care about output, not office hours." },
   { title: "Health coverage", body: "Comprehensive health insurance for you and your dependents." },
   { title: "Learning budget", body: "Annual budget for courses, conferences, and books. Invest in yourself." },
@@ -119,7 +119,7 @@ export default function CareersPage() {
                   </p>
                 </div>
                 <a
-                  href={`mailto:careers@wagenow.io?subject=Application: ${job.title}`}
+                  href={`mailto:careers@wagenow.com.gh?subject=Application: ${job.title}`}
                   className="shrink-0 text-[13px] font-medium px-5 py-2.5 rounded-lg transition-opacity hover:opacity-90"
                   style={{ background: "var(--ink)", color: "#fff" }}
                 >
@@ -136,7 +136,7 @@ export default function CareersPage() {
         >
           <p className="text-[15px] leading-[1.7]" style={{ color: "var(--ink3)" }}>
             Don&apos;t see a role that fits?{" "}
-            <a href="mailto:careers@wagenow.io" className="font-medium" style={{ color: "var(--green)" }}>
+            <a href="mailto:careers@wagenow.com.gh" className="font-medium" style={{ color: "var(--green)" }}>
               Send us your CV anyway →
             </a>
           </p>

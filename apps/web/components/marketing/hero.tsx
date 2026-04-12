@@ -18,7 +18,7 @@ export function Hero() {
           WebkitTextStroke: "1px var(--border2)",
         }}
       >
-        EWA
+        GHS
       </div>
 
       <div className="relative z-[1] grid grid-cols-[1fr_520px] gap-16 items-end max-[1080px]:grid-cols-1">
@@ -135,7 +135,7 @@ export function Hero() {
               ~90s
             </div>
             <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
-              via mobile wallet
+              via MoMo rails
             </div>
           </div>
 
@@ -152,7 +152,7 @@ export function Hero() {
               Employee fee
             </div>
             <div className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
-              $3
+              GHS 3
             </div>
             <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
               flat · no interest
@@ -190,8 +190,8 @@ export function Hero() {
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-[10px] mb-[18px]">
                 {[
-                  { label: "Total accrued", val: "$284K", delta: "↑ +12.4% MoM", green: false },
-                  { label: "Withdrawn today", val: "$14.2K", delta: "↑ 47 transactions", green: true },
+                  { label: "Total accrued", val: "GHS 284K", delta: "↑ +12.4% MoM", green: false },
+                  { label: "Withdrawn today", val: "GHS 14.2K", delta: "↑ 47 transactions", green: true },
                   { label: "Recovery rate", val: "100%", delta: "Auto deducted", green: false },
                 ].map((s) => (
                   <div
@@ -267,9 +267,9 @@ export function Hero() {
                   <span>Status</span>
                 </div>
                 {[
-                  { initials: "KA", name: "Kevin Adams", amount: "$450", status: "Sent", sent: true },
-                  { initials: "AB", name: "Anna Brooks", amount: "$300", status: "Sent", sent: true },
-                  { initials: "YO", name: "Yuki Okada", amount: "$600", status: "Processing", sent: false },
+                  { initials: "KA", name: "Kwame Asante", amount: "GHS 450", status: "Sent", sent: true },
+                  { initials: "AB", name: "Abena Boateng", amount: "GHS 300", status: "Sent", sent: true },
+                  { initials: "YO", name: "Yaw Owusu", amount: "GHS 600", status: "Processing", sent: false },
                 ].map((emp) => (
                   <div
                     key={emp.name}

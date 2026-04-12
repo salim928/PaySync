@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const plans = [
   {
     tier: "Starter",
-    price: "99",
+    price: "500",
     cadence: "per month · up to 50 employees",
     features: [
       "WageNow EWA for all employees",
@@ -25,7 +25,7 @@ const plans = [
   },
   {
     tier: "Growth",
-    price: "399",
+    price: "2,000",
     cadence: "per month · up to 250 employees",
     features: [
       "Everything in Starter",
@@ -118,7 +118,7 @@ export default function PricingPage() {
                 className="font-(family-name:--font-fraunces) font-extralight tracking-[-0.05em] leading-none mb-1"
                 style={{ fontSize: p.price === "Custom" ? 38 : 52, color: p.featured ? "#fff" : "var(--ink)" }}
               >
-                {p.price !== "Custom" && <sup className="text-[22px] align-super tracking-normal">$</sup>}
+                {p.price !== "Custom" && <sup className="text-[16px] align-super tracking-normal mr-1">GHS</sup>}
                 {p.price}
               </div>
               <div
