@@ -23,7 +23,7 @@ const footerLinks = {
   ],
   Contact: [
     { label: "hello@wagenow.com.gh", href: "mailto:hello@wagenow.com.gh" },
-    { label: "+233 30 000 0000", href: "tel:+233300000000" },
+    { label: "+233 20 887 8742", href: "tel:+233208878742" },
     { label: "Airport City, Accra", href: "#contact" },
     { label: "Schedule a demo", href: "#contact" },
   ],
