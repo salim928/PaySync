@@ -58,21 +58,22 @@ export function Nav() {
       <div className="flex items-center gap-2">
         <Link
           href="/employee-login"
-          className="hidden sm:block text-[13.5px] font-normal px-3.5 py-1.5 rounded-md transition-colors duration-150 font-(family-name:--font-dm-sans)"
+          className="text-[12px] sm:text-[13.5px] font-normal px-2 sm:px-3.5 py-1.5 rounded-md transition-colors duration-150 font-(family-name:--font-dm-sans)"
           style={{ color: "var(--ink3)", background: "none", border: "none" }}
         >
           Employee
         </Link>
         <Link
           href="/login"
-          className="hidden sm:block text-[13.5px] font-normal px-3.5 py-1.5 rounded-md transition-colors duration-150 font-(family-name:--font-dm-sans)"
+          className="text-[12px] sm:text-[13.5px] font-normal px-2 sm:px-3.5 py-1.5 rounded-md transition-colors duration-150 font-(family-name:--font-dm-sans)"
           style={{ color: "var(--ink3)", background: "none", border: "none" }}
         >
-          Employer sign in
+          <span className="sm:hidden">Employer</span>
+          <span className="hidden sm:inline">Employer sign in</span>
         </Link>
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.75 text-[13.5px] font-medium px-5 py-2 rounded-lg border-none cursor-pointer transition-opacity duration-150 hover:opacity-[0.82] active:scale-[0.98] font-(family-name:--font-dm-sans)"
+          className="hidden sm:inline-flex items-center gap-1.75 text-[13.5px] font-medium px-5 py-2 rounded-lg border-none cursor-pointer transition-opacity duration-150 hover:opacity-[0.82] active:scale-[0.98] font-(family-name:--font-dm-sans)"
           style={{
             background: "var(--ink)",
             color: "#fff",
