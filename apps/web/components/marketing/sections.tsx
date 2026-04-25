@@ -1,6 +1,29 @@
 "use client";
 
+import type { ReactNode } from "react";
+import {
+  Coins,
+  Hourglass,
+  TrendingDown,
+  RefreshCw,
+  Building2,
+  FileSpreadsheet,
+  Smartphone,
+  Zap,
+  MessageCircle,
+  ShieldCheck,
+  BarChart3,
+  Plug,
+  KeyRound,
+  Settings2,
+  Lock,
+  FileCheck2,
+  Scale,
+  Check,
+} from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+
+const ICON_STROKE = 1.5;
 
 /* ═══════════════════════════════════════════════════════════
    TICKER MARQUEE
@@ -35,29 +58,52 @@ export function Ticker() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   LOGOS / PARTNERS
+   LOGOS / PARTNERS — wordmarks for Ghanaian payment rails & banks
 ═══════════════════════════════════════════════════════════ */
-const logos = [
-  { icon: "📱", name: "Mobile Money" },
-  { icon: "📱", name: "All Networks" },
-  { icon: "🏦", name: "Bank Transfer" },
-  { icon: "🏦", name: "Local Banks" },
-  { icon: "💼", name: "CSV Import" },
-  { icon: "💼", name: "Payroll Systems" },
+const partnerLogos: { name: string; sub?: string }[] = [
+  { name: "MTN", sub: "MoMo" },
+  { name: "Vodafone", sub: "Cash" },
+  { name: "AirtelTigo", sub: "Money" },
+  { name: "GCB", sub: "Bank" },
+  { name: "Ecobank" },
+  { name: "Stanbic" },
+  { name: "ABSA" },
 ];
 
 export function Logos() {
   return (
-    <section className="px-13 py-16 max-[1080px]:px-8 max-[1080px]:py-12" style={{ borderBottom: "1px solid var(--border)" }}>
-      <div className="max-w-(--max) mx-auto flex items-center gap-16 max-[1080px]:flex-col max-[1080px]:gap-6 max-[1080px]:items-start">
-        <div className="text-[11px] font-semibold tracking-[0.08em] uppercase whitespace-nowrap shrink-0 pr-16 max-[1080px]:pr-0 max-[1080px]:pb-4 max-[1080px]:border-b max-[1080px]:border-r-0" style={{ color: "var(--ink5)", borderRight: "1px solid var(--border)" }}>
-          Integrated with
+    <section
+      className="px-13 py-14 max-[1080px]:px-8 max-[1080px]:py-12"
+      style={{ borderBottom: "1px solid var(--border)" }}
+    >
+      <div className="max-w-(--max) mx-auto flex items-center gap-14 max-[1080px]:flex-col max-[1080px]:gap-6 max-[1080px]:items-start">
+        <div
+          className="text-[11px] font-semibold tracking-[0.1em] uppercase whitespace-nowrap shrink-0 pr-14 max-[1080px]:pr-0 max-[1080px]:pb-4 max-[1080px]:border-b max-[1080px]:border-r-0"
+          style={{ color: "var(--ink5)", borderRight: "1px solid var(--border)" }}
+        >
+          Settles into
         </div>
-        <div className="flex items-center gap-11 flex-wrap">
-          {logos.map((l) => (
-            <div key={l.name} className="flex items-center gap-2 text-[13px] font-medium opacity-65 hover:opacity-100 transition-opacity" style={{ color: "var(--ink4)" }}>
-              <div className="w-7 h-7 rounded-[7px] flex items-center justify-center text-[13px]" style={{ background: "var(--bg3)" }}>{l.icon}</div>
-              {l.name}
+        <div className="flex items-center gap-x-12 gap-y-6 flex-wrap">
+          {partnerLogos.map((l) => (
+            <div
+              key={l.name}
+              className="flex items-baseline gap-1.5 transition-opacity hover:opacity-100"
+              style={{ opacity: 0.55 }}
+            >
+              <span
+                className="font-(family-name:--font-fraunces) font-normal tracking-[-0.03em] text-[20px] leading-none"
+                style={{ color: "var(--ink2)" }}
+              >
+                {l.name}
+              </span>
+              {l.sub && (
+                <span
+                  className="text-[11px] font-(family-name:--font-dm-mono) tracking-[0.02em]"
+                  style={{ color: "var(--ink4)" }}
+                >
+                  {l.sub}
+                </span>
+              )}
             </div>
           ))}
         </div>
@@ -69,11 +115,11 @@ export function Logos() {
 /* ═══════════════════════════════════════════════════════════
    PROBLEM SECTION
 ═══════════════════════════════════════════════════════════ */
-const painCards = [
-  { icon: "💸", title: "Predatory lending fills the gap", body: "Loan apps charge 10–40x what WageNow costs. Employees pay interest on money they've already earned." },
-  { icon: "⏳", title: "HR is buried in advance requests", body: "Manual salary advance processing consumes 4–8 hours of payroll officer time per month. High error rate. No audit trail." },
-  { icon: "📉", title: "Financial stress kills productivity", body: "Workers distracted by financial emergencies underperform. Studies link financial stress to 20%+ productivity loss." },
-  { icon: "🔁", title: "Payroll cycle mismatch", body: "Monthly payroll was designed around bank constraints that no longer exist. Mobile money rails enable real-time settlement." },
+const painCards: { icon: ReactNode; title: string; body: string }[] = [
+  { icon: <Coins strokeWidth={ICON_STROKE} className="w-5 h-5" />, title: "Predatory lending fills the gap", body: "Loan apps charge 10–40x what WageNow costs. Employees pay interest on money they've already earned." },
+  { icon: <Hourglass strokeWidth={ICON_STROKE} className="w-5 h-5" />, title: "HR is buried in advance requests", body: "Manual salary advance processing consumes 4–8 hours of payroll officer time per month. High error rate. No audit trail." },
+  { icon: <TrendingDown strokeWidth={ICON_STROKE} className="w-5 h-5" />, title: "Financial stress kills productivity", body: "Workers distracted by financial emergencies underperform. Studies link financial stress to 20%+ productivity loss." },
+  { icon: <RefreshCw strokeWidth={ICON_STROKE} className="w-5 h-5" />, title: "Payroll cycle mismatch", body: "Monthly payroll was designed around bank constraints that no longer exist. Mobile money rails enable real-time settlement." },
 ];
 
 export function Problem() {
@@ -99,7 +145,7 @@ export function Problem() {
         <div className="grid grid-cols-2 max-[640px]:grid-cols-1 gap-0.5 overflow-hidden" style={{ border: "1px solid var(--border)", borderRadius: "var(--r-xl)" }}>
           {painCards.map((c) => (
             <div key={c.title} className="p-8 px-7 transition-colors hover:bg-(--bg)" style={{ background: "var(--white)" }}>
-              <div className="w-10.5 h-10.5 rounded-(--r) flex items-center justify-center text-[18px] mb-4" style={{ background: "var(--bg2)" }}>{c.icon}</div>
+              <div className="w-10 h-10 rounded-(--r) flex items-center justify-center mb-4" style={{ background: "var(--bg2)", color: "var(--ink2)" }}>{c.icon}</div>
               <h3 className="font-(family-name:--font-fraunces) text-[17px] font-normal tracking-[-0.02em] leading-[1.2] mb-2" style={{ color: "var(--ink)" }}>{c.title}</h3>
               <p className="text-[13px] leading-[1.65]" style={{ color: "var(--ink3)" }}>{c.body}</p>
             </div>
@@ -113,11 +159,11 @@ export function Problem() {
 /* ═══════════════════════════════════════════════════════════
    PRODUCT — HOW IT WORKS (dark section)
 ═══════════════════════════════════════════════════════════ */
-const steps = [
-  { n: "01", icon: "🏢", title: "Employer onboards", body: "Create your account, set your withdrawal cap — typically 50% of net salary — and configure payroll cycle dates. Takes under 20 minutes." },
-  { n: "02", icon: "📋", title: "Payroll is connected", body: "Upload your CSV or connect via REST API. WageNow reads salary data and recalculates each employee's real-time earned balance every working day." },
-  { n: "03", icon: "📲", title: "Employees activate", body: "Staff receive an SMS invite. They verify via phone OTP and see their live accrual balance in seconds — no app download, no bank account required." },
-  { n: "04", icon: "⚡", title: "Withdraw. Repay. Repeat.", body: "Employee taps withdraw. Mobile wallet receives funds in ~90 seconds. On payday, deductions are automatic — zero admin, zero default risk, ever." },
+const steps: { n: string; icon: ReactNode; title: string; body: string }[] = [
+  { n: "01", icon: <Building2 strokeWidth={ICON_STROKE} className="w-[22px] h-[22px]" />, title: "Employer onboards", body: "Create your account, set your withdrawal cap — typically 50% of net salary — and configure payroll cycle dates. Takes under 20 minutes." },
+  { n: "02", icon: <FileSpreadsheet strokeWidth={ICON_STROKE} className="w-[22px] h-[22px]" />, title: "Payroll is connected", body: "Upload your CSV or connect via REST API. WageNow reads salary data and recalculates each employee's real-time earned balance every working day." },
+  { n: "03", icon: <Smartphone strokeWidth={ICON_STROKE} className="w-[22px] h-[22px]" />, title: "Employees activate", body: "Staff receive an SMS invite. They verify via phone OTP and see their live accrual balance in seconds — no app download, no bank account required." },
+  { n: "04", icon: <Zap strokeWidth={ICON_STROKE} className="w-[22px] h-[22px]" />, title: "Withdraw. Repay. Repeat.", body: "Employee taps withdraw. Mobile wallet receives funds in ~90 seconds. On payday, deductions are automatic — zero admin, zero default risk, ever." },
 ];
 
 export function Product() {
@@ -140,7 +186,7 @@ export function Product() {
                 {s.n}
                 {i < 3 && <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.1)" }}>→</span>}
               </div>
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-[22px] mb-5" style={{ background: "rgba(255,255,255,0.06)" }}>{s.icon}</div>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.85)" }}>{s.icon}</div>
               <h3 className="font-(family-name:--font-fraunces) text-[20px] font-light tracking-[-0.03em] text-white leading-[1.2] mb-2.5">{s.title}</h3>
               <p className="text-[13px] leading-[1.65]" style={{ color: "rgba(255,255,255,0.38)" }}>{s.body}</p>
             </div>
@@ -154,13 +200,13 @@ export function Product() {
 /* ═══════════════════════════════════════════════════════════
    FEATURES
 ═══════════════════════════════════════════════════════════ */
-const featureCards = [
-  { icon: "📱", title: "WhatsApp + PWA access", body: "Employees check balances and request withdrawals directly via WhatsApp or a lightweight web app. No install required." },
-  { icon: "🔒", title: "Zero employer credit risk", body: "Employees can only access wages they have already accrued. Repayment is deducted automatically at payroll." },
-  { icon: "📊", title: "Employer analytics dashboard", body: "Real-time view of all withdrawals, outstanding accruals, and per-employee activity. One-click deduction reports." },
-  { icon: "🔗", title: "Payroll CSV or REST API", body: "Start with a monthly CSV upload — zero dev work. When ready, connect via REST API for live sync." },
-  { icon: "🛡️", title: "OTP-secured verification", body: "Every employee activation and withdrawal is secured via SMS OTP. No passwords to forget. No email to verify." },
-  { icon: "⚙️", title: "Configurable accrual rules", body: "Set withdrawal caps by department, seniority, or employment type. Handle probation and part-time out of the box." },
+const featureCards: { icon: ReactNode; title: string; body: string }[] = [
+  { icon: <MessageCircle strokeWidth={ICON_STROKE} className="w-[18px] h-[18px]" />, title: "WhatsApp + PWA access", body: "Employees check balances and request withdrawals directly via WhatsApp or a lightweight web app. No install required." },
+  { icon: <ShieldCheck strokeWidth={ICON_STROKE} className="w-[18px] h-[18px]" />, title: "Zero employer credit risk", body: "Employees can only access wages they have already accrued. Repayment is deducted automatically at payroll." },
+  { icon: <BarChart3 strokeWidth={ICON_STROKE} className="w-[18px] h-[18px]" />, title: "Employer analytics dashboard", body: "Real-time view of all withdrawals, outstanding accruals, and per-employee activity. One-click deduction reports." },
+  { icon: <Plug strokeWidth={ICON_STROKE} className="w-[18px] h-[18px]" />, title: "Payroll CSV or REST API", body: "Start with a monthly CSV upload — zero dev work. When ready, connect via REST API for live sync." },
+  { icon: <KeyRound strokeWidth={ICON_STROKE} className="w-[18px] h-[18px]" />, title: "OTP-secured verification", body: "Every employee activation and withdrawal is secured via SMS OTP. No passwords to forget. No email to verify." },
+  { icon: <Settings2 strokeWidth={ICON_STROKE} className="w-[18px] h-[18px]" />, title: "Configurable accrual rules", body: "Set withdrawal caps by department, seniority, or employment type. Handle probation and part-time out of the box." },
 ];
 
 export function Features() {
@@ -229,7 +275,7 @@ export function Features() {
         {featureCards.map((f, i) => (
           <ScrollReveal key={f.title}>
             <div className="p-8 px-7 transition-colors hover:bg-(--bg)" style={{ background: "var(--white)", border: "1px solid var(--border)", borderRadius: i === 0 ? "0 0 0 var(--r-xl)" : i === featureCards.length - 1 ? "0 0 var(--r-xl) 0" : undefined }}>
-              <div className="w-10 h-10 rounded-[9px] flex items-center justify-center text-[17px] mb-4" style={{ background: "var(--bg2)" }}>{f.icon}</div>
+              <div className="w-10 h-10 rounded-[9px] flex items-center justify-center mb-4" style={{ background: "var(--bg2)", color: "var(--ink2)" }}>{f.icon}</div>
               <h3 className="font-(family-name:--font-fraunces) text-[17px] font-normal tracking-[-0.02em] leading-[1.2] mb-2" style={{ color: "var(--ink)" }}>{f.title}</h3>
               <p className="text-[13px] leading-[1.65]" style={{ color: "var(--ink3)" }}>{f.body}</p>
             </div>
@@ -243,24 +289,73 @@ export function Features() {
 /* ═══════════════════════════════════════════════════════════
    TRUST / SECURITY
 ═══════════════════════════════════════════════════════════ */
-const trustItems = [
-  { icon: "🏛️", title: "Bank-grade data security", body: "All payroll data is encrypted at rest and in transit using AES-256 and TLS 1.3. We never store raw mobile wallet credentials." },
-  { icon: "📋", title: "Full audit trail", body: "Every withdrawal request, disbursement, and deduction is time-stamped and logged immutably. Auditor-ready records." },
-  { icon: "🏛️", title: "Regulatory-compliant infrastructure", body: "Built to comply with local payment systems guidelines and data protection requirements in every market we serve." },
+const trustItems: { icon: ReactNode; title: string; body: string }[] = [
+  { icon: <Lock strokeWidth={ICON_STROKE} className="w-[19px] h-[19px]" />, title: "Bank-grade data security", body: "All payroll data is encrypted at rest and in transit using AES-256 and TLS 1.3. We never store raw mobile wallet credentials." },
+  { icon: <FileCheck2 strokeWidth={ICON_STROKE} className="w-[19px] h-[19px]" />, title: "Full audit trail", body: "Every withdrawal request, disbursement, and deduction is time-stamped and logged immutably. Auditor-ready records." },
+  { icon: <Scale strokeWidth={ICON_STROKE} className="w-[19px] h-[19px]" />, title: "Regulatory-compliant infrastructure", body: "Built to comply with local payment systems guidelines and data protection requirements in every market we serve." },
 ];
+
+const complianceBadges = ["AES-256", "TLS 1.3", "SOC 2 aligned", "GDPR-ready", "BoG guidelines"];
 
 export function Trust() {
   return (
     <section className="section-padding pb-30 max-[1080px]:pb-20">
       <ScrollReveal>
-        <div className="grid grid-cols-3 max-[1080px]:grid-cols-1 gap-12 p-14 px-16 max-[1080px]:p-10" style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: "var(--r-2xl)" }}>
-          {trustItems.map((t) => (
-            <div key={t.title}>
-              <div className="w-11 h-11 rounded-[11px] flex items-center justify-center text-[20px] mb-4" style={{ background: "var(--white)", border: "1px solid var(--border)" }}>{t.icon}</div>
-              <h3 className="font-(family-name:--font-fraunces) text-[18px] font-normal tracking-[-0.02em] mb-2" style={{ color: "var(--ink)" }}>{t.title}</h3>
-              <p className="text-[13px] leading-[1.65]" style={{ color: "var(--ink3)" }}>{t.body}</p>
+        <div
+          className="p-14 px-16 max-[1080px]:p-10"
+          style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: "var(--r-2xl)" }}
+        >
+          <div className="flex items-end justify-between gap-10 mb-10 max-[1080px]:flex-col max-[1080px]:items-start max-[1080px]:gap-4">
+            <div>
+              <div className="eyebrow mb-4">
+                <span className="inline-block w-6 h-px" style={{ background: "var(--ink4)" }} />
+                Security &amp; compliance
+              </div>
+              <h2
+                className="font-(family-name:--font-fraunces) font-light tracking-[-0.04em] leading-[1.08]"
+                style={{ fontSize: "clamp(28px, 2.6vw, 36px)", color: "var(--ink)" }}
+              >
+                Trusted with payroll data —<br />
+                <em className="italic" style={{ color: "var(--green2)" }}>by design</em>, not by promise.
+              </h2>
             </div>
-          ))}
+            <div className="flex flex-wrap gap-2 max-w-[420px] justify-end max-[1080px]:justify-start">
+              {complianceBadges.map((b) => (
+                <span
+                  key={b}
+                  className="inline-flex items-center text-[11px] font-medium tracking-[0.02em] px-2.5 py-1 rounded-full font-(family-name:--font-dm-mono)"
+                  style={{ background: "var(--white)", border: "1px solid var(--border)", color: "var(--ink3)" }}
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="grid grid-cols-3 max-[1080px]:grid-cols-1 gap-px overflow-hidden"
+            style={{ background: "var(--border)", borderRadius: "var(--r-xl)" }}
+          >
+            {trustItems.map((t) => (
+              <div key={t.title} className="p-7 px-7" style={{ background: "var(--white)" }}>
+                <div
+                  className="w-11 h-11 rounded-[11px] flex items-center justify-center mb-4"
+                  style={{ background: "var(--bg2)", color: "var(--ink2)", border: "1px solid var(--border)" }}
+                >
+                  {t.icon}
+                </div>
+                <h3
+                  className="font-(family-name:--font-fraunces) text-[17px] font-normal tracking-[-0.02em] mb-2"
+                  style={{ color: "var(--ink)" }}
+                >
+                  {t.title}
+                </h3>
+                <p className="text-[13px] leading-[1.65]" style={{ color: "var(--ink3)" }}>
+                  {t.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </ScrollReveal>
     </section>
@@ -438,7 +533,9 @@ export function Pricing() {
               <div className="flex-1 flex flex-col gap-2.75 mb-8">
                 {p.features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5 text-[13px] leading-[1.4]" style={{ color: p.featured ? "rgba(255,255,255,0.65)" : "var(--ink2)" }}>
-                    <div className="w-4 h-4 rounded flex items-center justify-center text-[9px] shrink-0 mt-px" style={{ background: p.featured ? "rgba(255,255,255,0.1)" : "var(--green-bg)", color: p.featured ? "rgba(255,255,255,0.6)" : "var(--green)" }}>✓</div>
+                    <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: p.featured ? "rgba(255,255,255,0.12)" : "var(--green-bg)", color: p.featured ? "rgba(255,255,255,0.85)" : "var(--green)" }}>
+                      <Check strokeWidth={2.5} className="w-2.5 h-2.5" />
+                    </div>
                     {f}
                   </div>
                 ))}

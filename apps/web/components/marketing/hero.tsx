@@ -1,5 +1,7 @@
 "use client";
 
+import { PlayCircle, Zap, Wallet } from "lucide-react";
+
 export function Hero() {
   const chartHeights = [35,42,28,55,48,62,40,70,58,66,52,78,61,85,74,32,44,38,57,65];
   const chartLabels = ["1","3","5","7","9","11","13","15","17","19","21","23","25","27","Today","—","—","—","—","—"];
@@ -76,10 +78,7 @@ export function Hero() {
                 letterSpacing: "-0.01em",
               }}
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.3" />
-                <path d="M6 5.5L10.5 8L6 10.5V5.5Z" fill="currentColor" />
-              </svg>
+              <PlayCircle strokeWidth={1.4} className="w-4 h-4" />
               Watch demo
             </a>
           </div>
@@ -117,7 +116,7 @@ export function Hero() {
         <div className="hero-stagger-6 self-end relative max-[1080px]:hidden">
           {/* Floating cards */}
           <div
-            className="absolute left-[-88px] top-[100px] z-10 rounded-[var(--r-lg)] p-3 px-4"
+            className="absolute left-[-88px] top-[100px] z-10 rounded-[var(--r-lg)] p-3 px-4 flex items-center gap-3"
             style={{
               background: "var(--white)",
               border: "1px solid var(--border)",
@@ -125,22 +124,30 @@ export function Hero() {
               animation: "floatY 5s ease-in-out infinite -1.5s",
             }}
           >
-            <div className="text-[10px] font-medium mb-[3px]" style={{ color: "var(--ink4)" }}>
-              Avg. disbursement
-            </div>
             <div
-              className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none"
-              style={{ color: "var(--green2)" }}
+              className="w-9 h-9 rounded-[10px] flex items-center justify-center shrink-0"
+              style={{ background: "var(--green-bg)", color: "var(--green2)" }}
             >
-              ~90s
+              <Zap strokeWidth={1.7} className="w-[18px] h-[18px]" />
             </div>
-            <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
-              via MoMo rails
+            <div>
+              <div className="text-[10px] font-medium mb-[3px]" style={{ color: "var(--ink4)" }}>
+                Avg. disbursement
+              </div>
+              <div
+                className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none"
+                style={{ color: "var(--green2)" }}
+              >
+                ~90s
+              </div>
+              <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
+                via MoMo rails
+              </div>
             </div>
           </div>
 
           <div
-            className="absolute right-[-72px] top-[200px] z-10 rounded-[var(--r-lg)] p-3 px-4"
+            className="absolute right-[-72px] top-[200px] z-10 rounded-[var(--r-lg)] p-3 px-4 flex items-center gap-3"
             style={{
               background: "var(--white)",
               border: "1px solid var(--border)",
@@ -148,14 +155,22 @@ export function Hero() {
               animation: "floatY 5s ease-in-out infinite -3s",
             }}
           >
-            <div className="text-[10px] font-medium mb-[3px]" style={{ color: "var(--ink4)" }}>
-              Employee fee
+            <div
+              className="w-9 h-9 rounded-[10px] flex items-center justify-center shrink-0"
+              style={{ background: "var(--bg2)", color: "var(--ink2)" }}
+            >
+              <Wallet strokeWidth={1.6} className="w-[18px] h-[18px]" />
             </div>
-            <div className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
-              GHS 3
-            </div>
-            <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
-              flat · no interest
+            <div>
+              <div className="text-[10px] font-medium mb-[3px]" style={{ color: "var(--ink4)" }}>
+                Employee fee
+              </div>
+              <div className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
+                GHS 3
+              </div>
+              <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
+                flat · no interest
+              </div>
             </div>
           </div>
 
