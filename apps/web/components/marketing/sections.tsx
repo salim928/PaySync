@@ -305,21 +305,12 @@ export function Trust() {
           className="p-14 px-16 max-[1080px]:p-10"
           style={{ background: "var(--bg2)", border: "1px solid var(--border)", borderRadius: "var(--r-2xl)" }}
         >
-          <div className="flex items-end justify-between gap-10 mb-10 max-[1080px]:flex-col max-[1080px]:items-start max-[1080px]:gap-4">
-            <div>
-              <div className="eyebrow mb-4">
-                <span className="inline-block w-6 h-px" style={{ background: "var(--ink4)" }} />
-                Security &amp; compliance
-              </div>
-              <h2
-                className="font-(family-name:--font-fraunces) font-light tracking-[-0.04em] leading-[1.08]"
-                style={{ fontSize: "clamp(28px, 2.6vw, 36px)", color: "var(--ink)" }}
-              >
-                Trusted with payroll data —<br />
-                <em className="italic" style={{ color: "var(--green2)" }}>by design</em>, not by promise.
-              </h2>
+          <div className="flex items-center justify-between gap-6 mb-9 max-[1080px]:flex-col max-[1080px]:items-start max-[1080px]:gap-4">
+            <div className="eyebrow">
+              <span className="inline-block w-6 h-px" style={{ background: "var(--ink4)" }} />
+              Security &amp; compliance
             </div>
-            <div className="flex flex-wrap gap-2 max-w-[420px] justify-end max-[1080px]:justify-start">
+            <div className="flex flex-wrap gap-2 max-[1080px]:justify-start">
               {complianceBadges.map((b) => (
                 <span
                   key={b}

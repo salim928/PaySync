@@ -26,20 +26,6 @@ export function Hero() {
       <div className="relative z-[1] grid grid-cols-[1fr_520px] gap-16 items-end max-[1080px]:grid-cols-1">
         {/* Left */}
         <div>
-          {/* Tag */}
-          <div
-            className="hero-stagger-1 inline-flex items-center gap-2 rounded-full px-[14px] py-[5px] pl-2 mb-8"
-            style={{ background: "var(--green-bg)", border: "1px solid rgba(10,92,52,0.18)" }}
-          >
-            <span
-              className="w-[7px] h-[7px] rounded-full"
-              style={{ background: "var(--green3)", animation: "pls 2.4s ease-in-out infinite" }}
-            />
-            <span className="text-[12px] font-medium tracking-[0.01em]" style={{ color: "var(--green)" }}>
-              Now live — zero credit risk EWA
-            </span>
-          </div>
-
           {/* Headline */}
           <h1
             className="hero-stagger-2 font-[family-name:var(--font-fraunces)] font-light tracking-[-0.04em] leading-[1.01] mb-7"
