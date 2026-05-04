@@ -50,6 +50,9 @@ class Settings(BaseSettings):
     next_public_supabase_url: str = Field(default="")
     next_public_supabase_anon_key: str = Field(default="")
 
+    # ── Anthropic (AI assistant) ──
+    anthropic_api_key: str = Field(default="placeholder", description="Anthropic API key for the AI assistant")
+
     # ── App ──
     environment: str = Field(default="development")
     debug: bool = Field(default=False)

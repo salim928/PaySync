@@ -15,7 +15,7 @@ from fastapi.responses import JSONResponse
 from src.core.config import get_settings
 from src.core.redis import close_redis, get_redis
 from src.core.security import TokenError, verify_token
-from src.routers import auth, employees, employers, ewa, webhooks
+from src.routers import assistant, auth, employees, employers, ewa, policies, webhooks
 
 # ── Structured logging ──
 structlog.configure(
@@ -133,7 +133,9 @@ def create_app() -> FastAPI:
     app.include_router(employees.router)
     app.include_router(employers.router)
     app.include_router(ewa.router)
+    app.include_router(policies.router)
     app.include_router(webhooks.router)
+    app.include_router(assistant.router)
 
     # ── Health check ──
     @app.get("/api/v1/health")
