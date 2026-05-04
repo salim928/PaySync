@@ -1,6 +1,6 @@
 "use client";
 
-import { PlayCircle, Zap, Wallet } from "lucide-react";
+import { PlayCircle, Sparkles, Wallet } from "lucide-react";
 
 export function Hero() {
   const chartHeights = [35,42,28,55,48,62,40,70,58,66,52,78,61,85,74,32,44,38,57,65];
@@ -29,20 +29,19 @@ export function Hero() {
           {/* Headline */}
           <h1
             className="hero-stagger-2 font-[family-name:var(--font-fraunces)] font-light tracking-[-0.04em] leading-[1.01] mb-7"
-            style={{ fontSize: "clamp(52px, 6vw, 84px)", color: "var(--ink)" }}
+            style={{ fontSize: "clamp(40px, 6vw, 84px)", color: "var(--ink)" }}
           >
-            Your workforce<br />
-            has <em className="italic" style={{ color: "var(--green2)" }}>already<br />earned</em> this.
+            Run payroll<br />
+            in <em className="italic" style={{ color: "var(--green2)" }}>a&nbsp;morning</em>,<br />
+            not 3 days.
           </h1>
 
           {/* Sub */}
           <p
-            className="hero-stagger-3 text-[17px] leading-[1.75] max-w-[500px] mb-11"
+            className="hero-stagger-3 text-[16px] sm:text-[17px] leading-[1.7] sm:leading-[1.75] max-w-[520px] mb-10 sm:mb-11"
             style={{ color: "var(--ink3)" }}
           >
-            <strong className="font-medium" style={{ color: "var(--ink2)" }}>WageNow</strong> gives
-            employees real-time access to wages they&apos;ve already accrued — before
-            payday. No loans. No interest. No credit risk. Just their own money, when they need it.
+            <strong className="font-medium" style={{ color: "var(--ink2)" }}>WageNow</strong> handles payroll, HR records, and earned-wage access in one place — with an AI assistant that actually understands Ghanaian payroll. Set up in 5 days.
           </p>
 
           {/* CTAs */}
@@ -114,20 +113,20 @@ export function Hero() {
               className="w-9 h-9 rounded-[10px] flex items-center justify-center shrink-0"
               style={{ background: "var(--green-bg)", color: "var(--green2)" }}
             >
-              <Zap strokeWidth={1.7} className="w-[18px] h-[18px]" />
+              <Sparkles strokeWidth={1.7} className="w-[18px] h-[18px]" />
             </div>
             <div>
               <div className="text-[10px] font-medium mb-[3px]" style={{ color: "var(--ink4)" }}>
-                Avg. disbursement
+                AI assistant
               </div>
               <div
                 className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none"
                 style={{ color: "var(--green2)" }}
               >
-                ~90s
+                Ask anything
               </div>
               <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
-                via MoMo rails
+                payroll · HR · SSNIT
               </div>
             </div>
           </div>
@@ -149,13 +148,13 @@ export function Hero() {
             </div>
             <div>
               <div className="text-[10px] font-medium mb-[3px]" style={{ color: "var(--ink4)" }}>
-                Employee fee
+                EWA disbursement
               </div>
               <div className="font-[family-name:var(--font-fraunces)] text-[20px] font-light tracking-[-0.04em] leading-none" style={{ color: "var(--ink)" }}>
-                GHS 3
+                ~90s
               </div>
               <div className="text-[9px] mt-[3px] font-[family-name:var(--font-dm-mono)]" style={{ color: "var(--ink5)" }}>
-                flat · no interest
+                via MoMo · GHS 3 flat
               </div>
             </div>
           </div>
@@ -183,7 +182,7 @@ export function Hero() {
                 className="mx-auto -translate-x-[18px] font-[family-name:var(--font-dm-mono)] text-[11px]"
                 style={{ color: "var(--ink5)" }}
               >
-                WageNow — Employer Dashboard
+                WageNow — Payroll, HR &amp; AI Assistant
               </div>
             </div>
 
@@ -191,9 +190,9 @@ export function Hero() {
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-[10px] mb-[18px]">
                 {[
-                  { label: "Total accrued", val: "GHS 284K", delta: "↑ +12.4% MoM", green: false },
-                  { label: "Withdrawn today", val: "GHS 14.2K", delta: "↑ 47 transactions", green: true },
-                  { label: "Recovery rate", val: "100%", delta: "Auto deducted", green: false },
+                  { label: "Payroll cost", val: "GHS 284K", delta: "↑ +12.4% MoM", green: false },
+                  { label: "Active employees", val: "147", delta: "+3 this month", green: true },
+                  { label: "SSNIT due", val: "GHS 52.5K", delta: "By 14 May 2026", green: false },
                 ].map((s) => (
                   <div
                     key={s.label}
@@ -223,7 +222,7 @@ export function Hero() {
               >
                 <div className="flex justify-between items-center mb-[14px]">
                   <span className="text-[12px] font-semibold" style={{ color: "var(--ink2)" }}>
-                    Daily withdrawals — March 2026
+                    Payroll &amp; advances — May 2026
                   </span>
                   <span
                     className="font-[family-name:var(--font-dm-mono)] text-[10px] rounded px-2 py-[2px]"
